@@ -1,0 +1,94 @@
+{
+  "promociones_dinamicas": [
+    {
+      "nombre": "promocion_inicial",
+      "fecha_inicio": "2025-01-01T00:00:00",
+      "fecha_fin": "2025-06-13T23:59:59",
+      "mensajes": [
+        "&#128293;<span class='text-sm font-extrabold lg:text-lg'>&nbsp;30% OFF</span>&nbsp;<span class='text-xs lg:text-base'>en la Matrícula hasta el 13/06/25</span>",
+        "&#128179;¡Elegí ya!<span class='text-xs font-extrabold lg:text-lg'>&nbsp;Cuotas <strong>sin interés</strong></span>&nbsp;",
+        "&#127942;Construí<span class='text-sm font-extrabold lg:text-lg'>&nbsp;<strong>tu historia</strong></span>"
+      ]
+    },
+    {
+      "nombre": "promocion_extendida",
+      "fecha_inicio": "2025-06-14T00:00:00",
+      "fecha_fin": "2025-06-19T23:59:59",
+      "mensajes": [
+        "&#9203;<span class='text-sm font-extrabold lg:text-lg'>¡Se extiende la promoción!</span>",
+        "&#128293;<span class='text-sm font-extrabold lg:text-lg'>&nbsp;30% OFF</span>&nbsp;<span class='text-xs lg:text-base'>en la Matrícula hasta el 19/06/25</span>",
+        "&#128179;¡Elegí ya!<span class='text-xs font-extrabold lg:text-lg'>&nbsp;Cuotas <strong>sin interés</strong></span>&nbsp;",
+        "&#127942;Construí<span class='text-sm font-extrabold lg:text-lg'>&nbsp;<strong>tu historia</strong></span>"
+      ]
+    },
+    {
+      "nombre": "promocion_tercera",
+      "fecha_inicio": "2025-06-20T00:00:00",
+      "fecha_fin": "2025-07-11T23:59:59",
+      "mensajes": [
+        "&#128293;<span class='text-sm font-extrabold lg:text-lg'>&nbsp;20% OFF</span>&nbsp;<span class='text-xs lg:text-base'>en la Matrícula hasta el 11/07/25</span>",
+        "&#128179;¡Elegí ya!<span class='text-xs font-extrabold lg:text-lg'>&nbsp;Cuotas <strong>sin interés</strong></span>&nbsp;",
+        "&#127942;Construí<span class='text-sm font-extrabold lg:text-lg'>&nbsp;<strong>tu historia</strong></span>"
+      ]
+    },
+    {
+      "nombre": "promocion_cuarta",
+      "fecha_inicio": "2025-07-12T00:00:00",
+      "fecha_fin": "2025-07-25T23:59:59",
+      "mensajes": [
+        "&#128293;<span class='text-sm font-extrabold lg:text-lg'>&nbsp;10% OFF</span>&nbsp;<span class='text-xs lg:text-base'>en la Matrícula hasta el 25/07/25</span>",
+        "&#128179;¡Elegí ya!<span class='text-xs font-extrabold lg:text-lg'>&nbsp;Cuotas <strong>sin interés</strong></span>&nbsp;",
+        "&#127942;Construí<span class='text-sm font-extrabold lg:text-lg'>&nbsp;<strong>tu historia</strong></span>"
+      ]
+    }
+  ],
+  "promocion_fallback": [
+    "&#127942;Construí<span class='text-sm font-extrabold lg:text-lg'>&nbsp;<strong>tu historia</strong></span>",
+    "&#128179;¡Elegí ya!<span class='text-xs font-extrabold lg:text-lg'>&nbsp;Cuotas <strong>sin interés</strong></span>&nbsp;"
+  ],
+  "promocion_distancia": [
+    "&#128293;<span class='text-sm font-extrabold lg:text-lg'>&nbsp;20% OFF</span>&nbsp;<span class='text-xs lg:text-base'>en la Matrícula hasta el 11/07/25</span>",
+    "&#128179;¡Elegí ya!<span class='text-xs font-extrabold lg:text-lg'>&nbsp;Cuotas <strong>sin interés</strong></span>&nbsp;",
+    "&#127942;Construí<span class='text-sm font-extrabold lg:text-lg'>&nbsp;<strong>tu historia</strong></span>"
+  ],
+  "promocion_postgrados": [
+    "&#128640;Potenciando<span class='text-sm font-extrabold lg:text-lg'>&nbsp;líderes</span>&nbsp;",
+    "&#128179;¡Elegí ya!<span class='text-xs font-extrabold lg:text-lg'>&nbsp;Cuotas <strong>sin interés</strong></span>&nbsp;",
+    "&#127942;Construí<span class='text-sm font-extrabold lg:text-lg'>&nbsp;<strong>tu historia</strong></span>"
+  ],
+  "promocion": [
+    "&#9940;Inscripciones<span class='text-sm font-extrabold lg:text-lg'>&nbsp;<strong>cerradas</strong></span>&nbsp;",
+    "&#127942;Construí<span class='text-sm font-extrabold lg:text-lg'>&nbsp;<strong>tu historia</strong></span>"
+  ],
+  "codcaroff": [],
+  "cerradas": "<span>&#128274; &#161;Inscripciones<span class='text-sm font-extrabold lg:text-lg'>&nbsp;Cerradas</span>!</span>",
+  "tarjeta": [
+    {
+      "id": "macro",
+      "nombre": "Macro Click",
+      "imagen": "/landing/ingreso-carreras-2022/convenios/macro.svg",
+      "descripcion": "Elegí abonar con<b> MACRO CLICK</b><br>en 1 a 3 cuotas sin interés",
+      "activa": false
+    },
+    {
+      "id": "naranja",
+      "nombre": "Naranja X",
+      "imagen": "/landing/ingreso-carreras-2022/convenios/naranjax.svg",
+      "descripcion": "Elegí abonar con<b> Naranja X</b><br> en Z y 5 cuotas sin interés",
+      "activa": true,
+      "orden": 1
+    },
+    {
+      "id": "banco",
+      "nombre": "Banco",
+      "imagen": "/landing/ingreso-carreras-2022/convenios/banco.svg",
+      "descripcion": "Elegí abonar con<b> Tarjeta BanCo</b><br>de 1 hasta 6 cuotas sin interés",
+      "activa": true,
+      "orden": 2
+    }
+  ],
+"banner": {
+    "video": "/landing/public/bannerDigital.webm"
+  },
+  "videoURL": "https://www.youtube.com/embed/CÓDIGO_DEL_VIDEO?si=TU_QUERY_STRING"
+}

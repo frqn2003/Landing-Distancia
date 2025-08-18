@@ -1,0 +1,1213 @@
+{
+    "careers": [
+        {
+            "codcar": 1,
+            "nombre": "Licenciatura en Comunicaciones Sociales",
+            "descripcion": "Análisis y producción de contenidos en medios tradicionales y digitales con enfoque crítico y creativo.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 137
+        },
+        {
+            "codcar": 4,
+            "nombre": "Profesorado en Inglés",
+            "descripcion": "Formación pedagógica en lengua inglesa para enseñar en distintos niveles educativos con excelencia lingüística.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación e Idiomas",
+            "imagen": "./public/areas/idiomas.svg",
+            "estudiantes": 111
+        },
+        {
+            "codcar": 7,
+            "nombre": "Locutor Nacional",
+            "descripcion": "Entrenamiento en comunicación oral profesional para radio, TV y eventos con licencia oficial.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "3 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 46
+        },
+        {
+            "codcar": 9,
+            "nombre": "Tecnicatura Universitaria en Secretariado Ejecutivo",
+            "descripcion": "Gestión administrativa, planificación y asistencia ejecutiva en organizaciones públicas y privadas.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 86
+        },
+        {
+            "codcar": 10,
+            "nombre": "Licenciatura en Economía",
+            "descripcion": "Análisis de fenómenos económicos y financieros para intervenir en decisiones públicas y privadas.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Económicas",
+            "imagen": "./public/areas/economia.svg",
+            "estudiantes": 438
+        },
+        {
+            "codcar": 11,
+            "nombre": "Licenciatura en Administración de Empresas",
+            "descripcion": "Gestión estratégica de organizaciones, con foco en liderazgo, finanzas, marketing y planificación.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 1228
+        },
+        {
+            "codcar": 14,
+            "nombre": "Contador Público",
+            "descripcion": "Preparación contable, financiera e impositiva para asesorar empresas y organismos públicos o privados.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": true,
+            "categoria": "Ciencias Económicas",
+            "imagen": "./public/areas/economia.svg",
+            "estudiantes": 3920
+        },
+        {
+            "codcar": 15,
+            "nombre": "Licenciatura en Comercialización",
+            "descripcion": "Desarrollo de estrategias de marketing y ventas, con visión analítica y creatividad para liderar el mercado.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 880
+        },
+        {
+            "codcar": 16,
+            "nombre": "Abogacía",
+            "descripcion": "Formate para abordar problemáticas psicosociales con mirada crítica y compromiso con la salud mental y los derechos humanos.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 8502
+        },
+        {
+            "codcar": 17,
+            "nombre": "Licenciatura en Relaciones Internacionales",
+            "descripcion": "Estudios sobre política, economía y cooperación internacional para comprender y actuar en un mundo globalizado.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 753
+        },
+        {
+            "codcar": 18,
+            "nombre": "Ingeniería Civil",
+            "descripcion": "Diseño, construcción y mantenimiento de obras de infraestructura con responsabilidad técnica y social.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ingeniería",
+            "imagen": "./public/areas/ingenieria.svg",
+            "estudiantes": 418
+        },
+        {
+            "codcar": 19,
+            "nombre": "Ingeniería Industrial",
+            "descripcion": "Diseño y mejora de procesos productivos y logísticos para aumentar la eficiencia organizacional.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ingeniería",
+            "imagen": "./public/areas/ingenieria.svg",
+            "estudiantes": 723
+        },
+        {
+            "codcar": 26,
+            "nombre": "Arquitectura",
+            "descripcion": "Formate para diseñar y transformar espacios del hábitat humano con visión creativa, técnica y compromiso con el entorno.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Arquitectura",
+            "imagen": "./public/areas/arquitectura.svg",
+            "estudiantes": 1082
+        },
+        {
+            "codcar": 30,
+            "nombre": "Licenciatura en Relaciones Públicas e Institucionales",
+            "descripcion": "Diseño de estrategias de comunicación que fortalezcan vínculos entre organizaciones y sus públicos.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 163
+        },
+        {
+            "codcar": 31,
+            "nombre": "Profesorado en Educación Física",
+            "descripcion": "Formación pedagógica y técnica para enseñar y promover el movimiento, la salud y el deporte en distintos niveles educativos.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación y Salud",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 435
+        },
+        {
+            "codcar": 32,
+            "nombre": "Licenciatura en Educación Física",
+            "descripcion": "Preparación profesional para promover la actividad física, el deporte y la salud en diversos contextos.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación y Salud",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 79
+        },
+        {
+            "codcar": 46,
+            "nombre": "Licenciatura en Criminalística",
+            "descripcion": " Capacitación en técnicas científicas para investigar delitos y colaborar en la justicia penal.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 972
+        },
+        {
+            "codcar": 47,
+            "nombre": "Profesorado Universitario en Educación Inicial",
+            "descripcion": "Formación docente especializada en el desarrollo integral de niños de 0 a 5 años, con enfoque lúdico y pedagógico.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 78
+        },
+        {
+            "codcar": 53,
+            "nombre": "Formación Docente para Profesionales",
+            "descripcion": "Habilita para ejercer la docencia en nivel superior con fundamentos pedagógicos y didácticos sólidos.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "1&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 137
+        },
+        {
+            "codcar": 54,
+            "nombre": "Productor y Director para Radio y Televisión",
+            "descripcion": "Diseño y dirección de contenidos audiovisuales para medios tradicionales y plataformas digitales.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "3 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 37
+        },
+        {
+            "codcar": 56,
+            "nombre": "Tecnicatura Universitaria en Podología",
+            "descripcion": "Formación técnica para el diagnóstico y tratamiento de afecciones del pie con enfoque clínico-preventivo.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "3 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias de la Salud",
+            "imagen": "./public/areas/salud.svg",
+            "estudiantes": 132
+        },
+        {
+            "codcar": 58,
+            "nombre": "Licenciatura en Ciencia de Datos",
+            "descripcion": "Análisis de grandes volúmenes de datos para tomar decisiones estratégicas basadas en información.",
+            "modalidad": [
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ingenieria y Tecnología",
+            "imagen": "./public/areas/tecnologia.svg",
+            "estudiantes": 286
+        },
+        {
+            "codcar": 68,
+            "nombre": "Perito en Accidentología",
+            "descripcion": "Capacitación técnica para investigar accidentes, reconstruir hechos y colaborar con la justicia.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 63
+        },
+        {
+            "codcar": 69,
+            "nombre": "Licenciatura en Psicopedagogía",
+            "descripcion": "Abordaje integral del aprendizaje y sus dificultades, con intervención en contextos educativos y clínicos.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 175
+        },
+        {
+            "codcar": 70,
+            "nombre": "Licenciatura en Terapia Ocupacional",
+            "descripcion": "Diseño de estrategias para promover la autonomía de personas con discapacidad o dificultades funcionales.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias de la Salud",
+            "imagen": "./public/areas/salud.svg",
+            "estudiantes": 162
+        },
+        {
+            "codcar": 84,
+            "nombre": "Ingeniería en Informatica",
+            "descripcion": "Diseño y desarrollo de sistemas informáticos, software y soluciones tecnológicas innovadoras.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": true,
+            "categoria": "Ingeniería y Tecnología",
+            "imagen": "./public/areas/ingenieria.svg",
+            "estudiantes": 888
+        },
+        {
+            "codcar": 86,
+            "nombre": "Licenciatura en Turismo",
+            "descripcion": "Planificación y gestión de servicios turísticos sustentables, con visión cultural y económica.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 86
+        },
+        {
+            "codcar": 94,
+            "nombre": "Licenciatura en Inglés (Ciclo de Complementación Curricular)",
+            "descripcion": "Profundización académica para profesionales del idioma, con foco en análisis lingüístico y cultural.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "2 años + tesina",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales e Idiomas",
+            "imagen": "./public/areas/idiomas.svg",
+            "estudiantes": 47
+        },
+        {
+            "codcar": 96,
+            "nombre": "Tecnicatura Universitaria en Gestión de Calidad",
+            "descripcion": "Diseño y control de procesos para asegurar la calidad en productos, servicios y organizaciones.",
+            "modalidad": [
+                7
+            ],
+            "duracion": "2&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 330
+        },
+        {
+            "codcar": 100,
+            "nombre": "Licenciatura en Filosofía",
+            "descripcion": "Estudios sobre pensamiento, ética y lógica para la reflexión crítica sobre la realidad.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 25
+        },
+        {
+            "codcar": 104,
+            "nombre": "Licenciatura en Educación Física - Ciclo de Complementación Curricular",
+            "descripcion": "Profundización de la práctica profesional en educación física con una mirada crítica e investigativa.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "1&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación y Salud",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 9
+        },
+        {
+            "codcar": 105,
+            "nombre": "Licenciatura en Psicología",
+            "descripcion": "Formate para abordar problemáticas psicosociales con mirada crítica y compromiso con la salud mental y los derechos humanos.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 2083
+        },
+        {
+            "codcar": 109,
+            "nombre": "Traductor Público en Inglés",
+            "descripcion": "Capacitación lingüística y legal para traducir documentos públicos, jurídicos y comerciales con alta precisión.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales e Idiomas",
+            "imagen": "./public/areas/idiomas.svg",
+            "estudiantes": 331
+        },
+        {
+            "codcar": 113,
+            "nombre": "Licenciatura en Gestión Educativa - Ciclo de Licenciatura",
+            "descripcion": "Formación para liderar y gestionar instituciones educativas con enfoque estratégico y pedagógico.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 520
+        },
+        {
+            "codcar": 117,
+            "nombre": "Ingeniería en Telecomunicaciones",
+            "descripcion": "Diseño e implementación de redes y tecnologías para conectar personas, empresas y sistemas.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ingeniería y Tecnología",
+            "imagen": "./public/areas/ingenieria.svg",
+            "estudiantes": 161
+        },
+        {
+            "codcar": 123,
+            "nombre": "Ciencias Veterinarias",
+            "descripcion": "Formate para cuidar la salud animal, promover la producción responsable y trabajar por la sanidad y seguridad alimentaria.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Agrarias y Veterinarias",
+            "imagen": "./public/areas/veterinaria.svg",
+            "estudiantes": 1060
+        },
+        {
+            "codcar": 132,
+            "nombre": "Licenciatura en Ciencias Políticas",
+            "descripcion": "Análisis del poder, las instituciones y las políticas públicas para intervenir en la vida democrática.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 15
+        },
+        {
+            "codcar": 133,
+            "nombre": "Licenciatura en Administración Agropecuaria",
+            "descripcion": "Gestión empresarial del sector agropecuario con conocimientos técnicos y económicos aplicados al campo.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Económicas y Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 252
+        },
+        {
+            "codcar": 138,
+            "nombre": "Licenciatura en Higiene y Seguridad en el Trabajo",
+            "descripcion": "Formación profesional para prevenir riesgos laborales y garantizar ambientes de trabajo seguros y saludables.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ingeniería",
+            "imagen": "./public/areas/ingenieria.svg",
+            "estudiantes": 1617
+        },
+        {
+            "codcar": 139,
+            "nombre": "Licenciatura en Artes Musicales",
+            "descripcion": "Formación artística y técnica para interpretar, componer y enseñar música en diversos géneros y estilos.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Artes",
+            "imagen": "./public/areas/arte.svg",
+            "estudiantes": 104
+        },
+        {
+            "codcar": 142,
+            "nombre": "Licenciatura en Trabajo Social",
+            "descripcion": "Intervención profesional en problemáticas sociales, con compromiso ético y enfoque en derechos humanos.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 205
+        },
+        {
+            "codcar": 146,
+            "nombre": "Escribanía (Ciclo de Complementación Curricular)",
+            "descripcion": "Complementación que habilita para ejercer funciones notariales con base en estudios previos en derecho.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "1&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 14
+        },
+        {
+            "codcar": 148,
+            "nombre": "Licenciatura en Diseño de Interiores - Ciclo de complementación Curricular",
+            "descripcion": "Formación académica para técnicos del área que buscan ampliar sus competencias creativas y proyectuales.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "1 año",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Arquitectura",
+            "imagen": "./public/areas/arquitectura.svg",
+            "estudiantes": 3
+        },
+        {
+            "codcar": 161,
+            "nombre": "Tecnicatura en Gestión de Bancos, Empresas Financieras y de Seguros",
+            "descripcion": "Gestión de operaciones, productos y servicios del sistema financiero y asegurador.",
+            "modalidad": [
+                7
+            ],
+            "duracion": "3 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Económicas y Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 249
+        },
+        {
+            "codcar": 173,
+            "nombre": "Diseño Industrial",
+            "descripcion": "Creación de productos funcionales e innovadores que mejoran la calidad de vida y aportan valor a la industria.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Arquitectura",
+            "imagen": "./public/areas/arquitectura.svg",
+            "estudiantes": 255
+        },
+        {
+            "codcar": 175,
+            "nombre": "Guía Universitario de Turismo",
+            "descripcion": "Capacitación para diseñar y coordinar experiencias turísticas con enfoque cultural, patrimonial y sustentable.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "2&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 43
+        },
+        {
+            "codcar": 179,
+            "nombre": "Licenciatura en Diseño de Interiores",
+            "descripcion": "Diseño estético y funcional de espacios interiores, integrando creatividad, confort y tendencias contemporáneas.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Arquitectura",
+            "imagen": "./public/areas/arquitectura.svg",
+            "estudiantes": 162
+        },
+        {
+            "codcar": 185,
+            "nombre": "Licenciatura en Gestión Eficiente de la Energía",
+            "descripcion": "Optimización del uso energético en industrias, comercios y hogares, promoviendo la sostenibilidad.",
+            "modalidad": [
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Arquitectura",
+            "imagen": "./public/areas/arquitectura.svg",
+            "estudiantes": 94
+        },
+        {
+            "codcar": 186,
+            "nombre": "Licenciatura en Entrenamiento Deportivo - Ciclo de Complementación Curricular",
+            "descripcion": "Perfeccionamiento para profesionales del deporte que buscan diseñar entrenamientos efectivos y seguros.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "1&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Salud y Educación",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 111
+        },
+        {
+            "codcar": 187,
+            "nombre": "Licenciatura en Lenguajes Expresivos - Ciclo de Complementación Curricular",
+            "descripcion": "Complementación para integrar expresión corporal, teatro y música en contextos educativos y sociales.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "1&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Salud y Educación",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 81
+        },
+        {
+            "codcar": 194,
+            "nombre": "Licenciatura en Educación Física - Ciclo de Complementación Curricular",
+            "descripcion": "Profundización de la práctica profesional en educación física con una mirada crítica e investigativa.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "1&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Salud y Educación",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 135
+        },
+        {
+            "codcar": 196,
+            "nombre": "Licenciatura en Seguridad - Ciclo de Complementación Curricular",
+            "descripcion": "Gestión integral de la seguridad en contextos públicos y privados, con enfoque preventivo y legal.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 139
+        },
+        {
+            "codcar": 214,
+            "nombre": "Licenciatura en Comercio Internacional",
+            "descripcion": "Comprensión de los procesos del comercio global, con habilidades en logística, aduanas y negociación internacional.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Económicas y Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 736
+        },
+        {
+            "codcar": 220,
+            "nombre": "Licenciatura en imagen y Sonido",
+            "descripcion": "Formate en producción audiovisual para crear, producir e innovar con impacto en el contenido multimedia, el arte, el ambiente y la tecnología.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Artes",
+            "imagen": "./public/areas/arte.svg",
+            "estudiantes": 182
+        },
+        {
+            "codcar": 221,
+            "nombre": "Licenciatura en Diseño Gráfico",
+            "descripcion": "Diseño visual estratégico para comunicar ideas, marcas y mensajes con impacto creativo y profesional.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Artes",
+            "imagen": "./public/areas/arte.svg",
+            "estudiantes": 448
+        },
+        {
+            "codcar": 222,
+            "nombre": "Licenciatura en Publicidad",
+            "descripcion": "Diseño de campañas y estrategias de comunicación publicitaria para conectar marcas con audiencias.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Artes",
+            "imagen": "./public/areas/arte.svg",
+            "estudiantes": 97
+        },
+        {
+            "codcar": 223,
+            "nombre": "Licenciatura en Periodismo",
+            "descripcion": "Formación en producción, redacción e investigación periodística en medios digitales y tradicionales.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Artes",
+            "imagen": "./public/areas/arte.svg",
+            "estudiantes": 84
+        },
+        {
+            "codcar": 231,
+            "nombre": "Licenciatura en Producción Animal",
+            "descripcion": "Formación científica y técnica para optimizar la producción ganadera y el manejo sustentable de recursos.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Agrarias y Veterinarias",
+            "imagen": "./public/areas/veterinaria.svg",
+            "estudiantes": 96
+        },
+        {
+            "codcar": 238,
+            "nombre": "Tecnicatura Universitaria en Actividad Física y Fitness",
+            "descripcion": "Capacitación para planificar y dirigir programas de actividad física y entrenamiento personalizado.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación y Salud",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 157
+        },
+        {
+            "codcar": 244,
+            "nombre": "Corredor Inmobiliario y Martillero Público",
+            "descripcion": "Habilitación profesional para gestionar operaciones inmobiliarias y participar en subastas públicas y privadas.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "2&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 1482
+        },
+        {
+            "codcar": 249,
+            "nombre": "Profesorado en Campo Disciplinar según Titulación de Base",
+            "descripcion": "Habilita para la docencia universitaria en el campo de tu título de base, con formación pedagógica sólida.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 107
+        },
+        {
+            "codcar": 250,
+            "nombre": "Licenciatura en Administración de Negocios Digitales",
+            "descripcion": "Gestión de empresas en entornos digitales, con foco en innovación, e-commerce y transformación digital.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Económicas y Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 111
+        },
+        {
+            "codcar": 320,
+            "nombre": "Licenciatura en Teología",
+            "descripcion": "Estudio académico y espiritual de la fe cristiana, con fundamento bíblico, filosófico y pastoral.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 44
+        },
+        {
+            "codcar": 332,
+            "nombre": "Licenciatura en Trabajo Social - Ciclo Complementación Curricular",
+            "descripcion": "Complementación para profesionales que buscan fortalecer su intervención en problemáticas sociales.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 165
+        },
+        {
+            "codcar": 336,
+            "nombre": "Licenciatura en Recursos Humanos",
+            "descripcion": "Formate para liderar la gestión del talento, mejorando la vida laboral y potenciando el desarrollo de personas en organizaciones.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Económicas y Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 1200
+        },
+        {
+            "codcar": 340,
+            "nombre": "Licenciatura en Kinesiología y Fisioterapia",
+            "descripcion": "Formación para prevenir, tratar y rehabilitar disfunciones corporales mediante técnicas terapéuticas.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias de la Salud",
+            "imagen": "./public/areas/salud.svg",
+            "estudiantes": 541
+        },
+        {
+            "codcar": 341,
+            "nombre": "Licenciatura en Podología - Ciclo de Complementación Curricular",
+            "descripcion": "Complementación para técnicos podólogos que buscan ampliar sus capacidades científicas y profesionales.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "1&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias de la Salud",
+            "imagen": "./public/areas/salud.svg",
+            "estudiantes": 25
+        },
+        {
+            "codcar": 342,
+            "nombre": "Licenciatura en Fonoaudiología",
+            "descripcion": "Evaluación y tratamiento de trastornos del habla, lenguaje, audición y deglución en todas las edades.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias de la Salud",
+            "imagen": "./public/areas/salud.svg",
+            "estudiantes": 399
+        },
+        {
+            "codcar": 343,
+            "nombre": "Profesorado Universitario en Educación Primaria",
+            "descripcion": "Formación pedagógica para enseñar en nivel primario, con mirada inclusiva, crítica y transformadora.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "4 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Educación",
+            "imagen": "./public/areas/educacion.svg",
+            "estudiantes": 77
+        },
+        {
+            "codcar": 355,
+            "nombre": "Escribanía",
+            "descripcion": "Formación para el ejercicio notarial, con sólidos conocimientos en derecho y funciones de fe pública.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "4&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 1091
+        },
+        {
+            "codcar": 360,
+            "nombre": "Tecnicatura en Seguridad Informática",
+            "descripcion": "Protección de sistemas y datos frente a amenazas digitales, con enfoque en ciberseguridad.",
+            "modalidad": [
+                7
+            ],
+            "duracion": "2&frac12; años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ingeniería y Tecnología",
+            "imagen": "./public/areas/tecnologia.svg",
+            "estudiantes": 750
+        },
+        {
+            "codcar": 361,
+            "nombre": "Licenciatura en Criminología - Ciclo de Complementación Curricular",
+            "descripcion": "Análisis del delito, prevención y políticas públicas desde una mirada interdisciplinaria.",
+            "modalidad": [
+                7
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 112
+        },
+        {
+            "codcar": 363,
+            "nombre": "Procuración",
+            "descripcion": "Formación legal para asistir procesos judiciales, gestionar causas y brindar apoyo técnico a abogados.",
+            "modalidad": [
+                1,
+                7
+            ],
+            "duracion": "3 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Humanidades",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 299
+        },
+        {
+            "codcar": 368,
+            "nombre": "Licenciatura en Administración y Gestión Universitaria - Ciclo de Complementación Curricular",
+            "descripcion": "Gestión administrativa y estratégica de instituciones de educación superior.",
+            "modalidad": [
+                7
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Económicas y Económicas",
+            "imagen": "./public/areas/economia.svg",
+            "estudiantes": 16
+        },
+        {
+            "codcar": 371,
+            "nombre": "Licenciatura en Bioimágenes - Ciclo Complementario",
+            "descripcion": "Profundización académica para técnicos en bioimágenes que deseen obtener el título de grado.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias de la Salud y Tecnología",
+            "imagen": "./public/areas/salud.svg",
+            "estudiantes": 28
+        },
+        {
+            "codcar": 372,
+            "nombre": "Tecnicatura en Administración y Gestión Judicial",
+            "descripcion": "Formación técnica para colaborar en procesos administrativos y operativos del ámbito judicial.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales y Administración",
+            "imagen": "./public/areas/administracion.svg",
+            "estudiantes": 22
+        },
+        {
+            "codcar": 378,
+            "nombre": "Organización y Dirección de Eventos y Ceremonial",
+            "descripcion": "Diseño, coordinación y protocolo para eventos institucionales, empresariales y sociales.",
+            "modalidad": [
+                7
+            ],
+            "duracion": "2 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias Sociales",
+            "imagen": "./public/areas/sociales.svg",
+            "estudiantes": 168
+        },
+        {
+            "codcar": 383,
+            "nombre": "Tecnicatura en Operaciones Mineras",
+            "descripcion": "Gestión operativa y técnica en procesos extractivos, con foco en seguridad y sustentabilidad.",
+            "modalidad": [
+                7
+            ],
+            "duracion": "3 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ingeniería y Tecnología",
+            "imagen": "./public/areas/ingenieria.svg",
+            "estudiantes": 640
+        },
+        {
+            "codcar": 1169,
+            "nombre": "Licenciatura en Psicomotricidad",
+            "descripcion": "Estudio del cuerpo, el movimiento y su relación con el desarrollo integral de las personas.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "5 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Ciencias de la Salud",
+            "imagen": "./public/areas/salud.svg",
+            "estudiantes": 83
+        },
+        {
+            "codcar": 1204,
+            "nombre": "Tecnicatura Universitaria en Producción de Bio-Imágenes",
+            "descripcion": "Capacitación en el manejo de equipos para obtener imágenes médicas en diagnósticos por imágenes.",
+            "modalidad": [
+                1
+            ],
+            "duracion": "3 años",
+            "popular": true,
+            "destacada": false,
+            "categoria": "Tecnología y Salud",
+            "imagen": "./public/areas/salud.svg",
+            "estudiantes": 343
+        }
+    ],
+    "filtros": [
+        {
+            "id": "popular",
+            "nombre": "Más Populares",
+            "filterType": "popular"
+        },
+        {
+            "id": "destacada",
+            "nombre": "Destacadas",
+            "filterType": "destacada"
+        },
+        {
+            "id": "1",
+            "nombre": "Presencial",
+            "filterType": "modalidad",
+            "value": 1
+        },
+        {
+            "id": "7",
+            "nombre": "Virtual/Online",
+            "filterType": "modalidad",
+            "value": 7
+        }
+    ],
+    "filtrosArea": [
+        "ingeniería",
+        "tecnología",
+        "económicas",
+        "salud",
+        "sociales",
+        "Humanidades",
+        "Administración",
+        "Idiomas",
+        "educación",
+        "Ciencias Agrarias y Veterinarias",
+        "Artes",
+        "Arquitectura"
+    ],
+    "modalidades": [
+        {
+            "id": 1,
+            "nombre": "Presencial",
+            "descripcion": "Cursá en un campus pensado para vos. Aprendé, conectá y crecé en un entorno que potencia tu formación.",
+            "imagen": "https://placehold.co/60x60",
+            "caracteristicas": [
+                "Infraestructura moderna y completa.",
+                "Rutina clara y horarios fijos.",
+                "Talleres recreativos.",
+                "Biblioteca universitaria con aulas silenciosas.",
+                "Instalaciones deportivas."
+            ]
+        },
+        {
+            "id": 7,
+            "nombre": "Online",
+            "descripcion": "Cursá desde donde estés, aprendiendo a tu ritmo y manejando tus propios tiempos sin dejar de lado tus actividades.",
+            "imagen": "https://placehold.co/60x60",
+            "caracteristicas": [
+                "Espacios virtuales de aprendizaje.",
+                "Acompañamiento continuo.",
+                "Biblioteca digital.",
+                "Clases en vivo y grabadas.",
+                "Cursos exclusivos."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,502 @@
+.contenedor {
+    margin-inline: 25px;
+}
+
+@media (min-width: 768px) {
+    .contenedor {
+        margin-inline: 100px;
+    }
+}
+
+@font-face {
+    font-family: "Museo Sans";
+    font-style: normal;
+    font-weight: 500;
+    src: local("Museo Sans"),
+        url("/fonts/MuseoSans_500.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "Museo Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Museo Sans"),
+        url("/fonts/MuseoSans_700.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "Museo Sans";
+    font-style: normal;
+    font-weight: 900;
+    src: local("Museo Sans"),
+        url("/fonts/MuseoSans_900.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "Museo Sans";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Museo Sans"),
+        url("/fonts/MuseoSans-300.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "Museo Sans 900";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Museo Sans"),
+        url("/fonts/MuseoSans_900.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "Museo Sans 500";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Museo Sans"),
+        url("/fonts/MuseoSans_500.otf") format("truetype");
+}
+
+/* Boton generico */
+.boton-cta {
+    background-color: #D6001C;
+    color: white;
+    padding: 10px 15px;
+    gap: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+    display: flex;
+}
+
+.boton-cta:hover {
+    background-color: #B8001A;
+}
+
+@media (max-width: 768px) {
+    .boton-cta {
+        padding: 6px 10px;
+        gap: 5px;
+        justify-content: center;
+        inline-size: auto;
+    }
+
+    .boton-cta:hover {
+        background-color: #B8001A;
+    }
+}
+
+.boton-inactivo {
+    background-color: #e0e0e0;
+    color: rgb(26 18 18);
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para el botón cuando está activo/habilitado */
+.boton-activo {
+    background-color: #B11111;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Estilo base para campos deshabilitados */
+.boton-inactivo-form {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+    position: relative;
+}
+
+/* Wrapper para los selects con tooltips */
+.select-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+/* Tooltip usando data-tooltip */
+.select-wrapper::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -20px;
+    left: 0;
+    background: #333;
+    color: #fff;
+    font-size: 10px;
+    padding: 6px 6px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    z-index: 1000;
+}
+
+/* Mostrar tooltip en hover del wrapper cuando el select está deshabilitado */
+.select-wrapper:hover::after,
+.select-wrapper:hover::before {
+    opacity: 1;
+}
+
+/* Solo mostrar tooltip si el select está deshabilitado */
+.select-wrapper:has(select:not([disabled]))::after,
+.select-wrapper:has(select:not([disabled]))::before {
+    display: none;
+}
+
+/* Fallback para navegadores que no soportan :has() */
+.select-wrapper.enabled::after,
+.select-wrapper.enabled::before {
+    display: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.10);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.boton-activo {
+    animation: pulse 2s infinite;
+}
+
+
+h1 {
+    /* TITULOS */
+    font-size: 1.5rem;
+    /* Tamaño base para móviles */
+    margin-bottom: 1.2rem;
+    /* Espacio inferior */
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.25rem;
+        /* Tamaño más grande para escritorio */
+        line-height: 45px;
+    }
+}
+
+h2 {
+    /* SUBTITULOS */
+    font-size: 1.3rem;
+    /* Tamaño base para móviles */
+    margin-bottom: 0.85rem;
+    /* Espacio inferior */
+}
+
+@media (min-width: 768px) {
+    h2 {
+        font-size: 1.50rem;
+        /* Tamaño más pequeño para escritorio */
+        line-height: 25px;
+    }
+}
+
+h3 {
+    /* DESCRIPCIONES */
+    font-size: 1rem;
+    /* Tamaño base para móviles */
+}
+
+@media (min-width: 768px) {
+    h3 {
+        font-size: 1.10rem;
+        /* Tamaño más pequeño para escritorio */
+        line-height: 25px;
+    }
+}
+
+/* Custom scrollbar styles for better visual appeal */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: var(--ucasal-gray-light);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);    
+    border-radius: 8px 8px 8px 8px;
+
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #808080;
+    
+}
+
+/* ===== COLORES DE MARCA UCASAL ===== */
+:root {
+    --ucasal-red: #D6001C;
+    /* PANTONE 2035 C */
+    --ucasal-blue: #002F6C;
+    /* PANTONE 294 C */
+    --ucasal-white: #FFFFFF;
+    --ucasal-black: #000000;
+    --ucasal-gray-light: #F8F9FA;
+    --ucasal-gray-medium: #E9ECEF;
+}
+
+
+/* ===== OPCIÓN 7: Gradiente dinámico con partículas - BRAND VERSION ===== */
+.hero-bg-option-7-brand {
+    background:
+        radial-gradient(circle at 15% 25%, rgba(0, 47, 108, 0.15) 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(214, 0, 28, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 60% 15%, rgba(255, 255, 255, 0.3) 0%, transparent 30%),
+        linear-gradient(135deg, var(--ucasal-gray-light) 0%, var(--ucasal-white) 50%, var(--ucasal-gray-medium) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg-option-7-brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 30% 70%, rgba(0, 47, 108, 0.06) 2px, transparent 2px),
+        radial-gradient(circle at 70% 30%, rgba(214, 0, 28, 0.06) 1px, transparent 1px),
+        radial-gradient(circle at 45% 45%, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+    background-size: 100px 100px, 150px 150px, 20px 20px;
+    animation: particleFloat 15s linear infinite;
+}
+
+.hero-bg-option-7-brand::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 20%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 0.8) 80%,
+            var(--ucasal-white) 100%);
+    clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* ===== OPCIÓN 9: Gradiente líquido moderno - BRAND VERSION (RECOMENDADA) ===== */
+.hero-bg-option-9 {
+    background:
+        radial-gradient(ellipse at top left, rgb(16 91 187 / 18%) 0%, #00000000 60%), radial-gradient(ellipse at top right, rgb(175 28 47 / 12%) 0%, transparent 60%), radial-gradient(ellipse at bottom center, rgb(233 206 206 / 50%) 0%, #00000000 60%), linear-gradient(135deg, var(--ucasal-gray-light) 0%, var(--ucasal-white) 30%, var(--ucasal-gray-light) 70%, var(--ucasal-gray-medium) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg-option-9::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        conic-gradient(from 0deg at 50% 50%,
+            transparent 0deg,
+            rgba(0, 47, 108, 0.06) 60deg,
+            transparent 120deg,
+            rgba(214, 0, 28, 0.06) 180deg,
+            transparent 240deg,
+            rgba(0, 47, 108, 0.06) 300deg,
+            transparent 360deg);
+}
+
+.hero-bg-option-9::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background:
+        radial-gradient(ellipse 100% 100% at 50% 100%, var(--ucasal-white) 0%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.9) 60%, var(--ucasal-white) 100%);
+}
+
+
+/* ===== SECCIONES DE CARRERAS CORRESPONDIENTES ===== */
+.carreras-section-brand {
+    background: var(--ucasal-white);
+    position: relative;
+}
+
+.carreras-section-brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background:
+        radial-gradient(circle at 25% 25%, rgba(0, 47, 108, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(214, 0, 28, 0.03) 0%, transparent 50%);
+    background-size: 100px 100px, 150px 150px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+
+    .hero-bg-option-7-brand::after {
+        height: 40px;
+    }
+
+    .hero-bg-option-7-brand::before {
+        filter: blur(1px);
+    }
+
+}
+
+.brand-glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.characteristics-content {
+    transition: all 0.3s ease;
+}
+
+.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .mobile-expand-trigger {
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+/* ===== ANIMACIÓN DEL MENÚ NAVBAR ===== */
+#navbar-menu {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#navbar-menu.menu-open {
+    max-height: 400px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación de los elementos del menú */
+#navbar-menu ul {
+    transform: translateY(-20px);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+
+#navbar-menu.menu-open ul {
+    transform: translateY(0);
+}
+
+/* Animación individual de los elementos de la lista */
+#navbar-menu li {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#navbar-menu.menu-open li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retrasos escalonados para cada elemento */
+#navbar-menu.menu-open li:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+#navbar-menu.menu-open li:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+#navbar-menu.menu-open li:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+#navbar-menu.menu-open li:nth-child(4) {
+    transition-delay: 0.25s;
+}
+
+/* Efecto hover mejorado para los enlaces del menú */
+#navbar-menu a {
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+#navbar-menu a:hover {
+    background-color: rgba(214, 0, 28, 0.1);
+    padding-left: 1rem;
+    color: black;
+}
+
+/* Animación del botón hamburguesa */
+#menu-button {
+    transition: transform 0.2s ease;
+}
+
+/* Backdrop blur cuando el menú está abierto */
+#navbar-menu.menu-open ul {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Animación de entrada suave para el contenedor del menú */
+#navbar-menu.menu-open {
+    animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        max-height: 400px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de salida suave */
+#navbar-menu:not(.menu-open) {
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        max-height: 400px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}

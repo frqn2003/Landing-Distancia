@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html class="scroll-smooth scroll-pt-24" lang="es" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWEL0PZRJD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-FWEL0PZRJD');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                "gtm.start": new Date().getTime(),
+                event: "gtm.js"
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-T6PB8G");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="shortcut icon" href="/landing/images/inicio-favicon.ico" />
+
+    <link rel="canonical" href="https://www.ucasal.edu.ar/landing/ingreso-carreras-ucasal.php" />
+    <meta name="author" content="Universidad Católica de Salta - UCASAL">
+
+    <meta name="description"
+        content="Queremos que seas parte de nuestra historia. Elegí tu carrera universitaria e iniciá tu camino profesional. Inscribite aquí.">
+    <meta name="keywords" content="ucasal,carreras de grado, universidad, inscripciones">
+
+    <meta property="og:site_name" content="UCASAL - Universidad Católica de Salta" />
+    <meta property="fb:admins" content="1371066615,100007820259560" />
+    <meta property="og:type" content="website" />
+    <meta property="og:see_also" content="https://www.ucasal.edu.ar/landing/ingreso-carreras-ucasal.php">
+    <meta property="og:url" content="https://www.ucasal.edu.ar/landing/ingreso-carreras-ucasal.php" />
+    <meta property="og:title"
+        content="Queremos que seas parte de nuestra historia. Elegí tu carrera universitaria e iniciá tu camino profesional. Inscribite aquí." />
+    <meta property="og:description"
+        content="Queremos que seas parte de nuestra historia. Elegí tu carrera universitaria e iniciá tu camino profesional. Inscribite aquí." />
+    <meta property="og:image" content="http://ucasal.edu.ar/landing/assets/img/scrapping.webp" />
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:src" content="http://ucasal.edu.ar/landing/assets/img/scrapping.jpg?v=6" />
+    <meta name="twitter:title"
+        content="Queremos que seas parte de nuestra historia. Elegí tu carrera universitaria e iniciá tu camino profesional. Inscribite aquí." />
+    <meta name="twitter:description"
+        content="Abogacia,Contador Público,Tec Higiene y Seguridad,Tec Gestión de Bancos y Emp Financieras,Lic Seguridad,Lic Administracion de Empresas,Lic Relaciones Internacionales,Lic en Comercialización,Lic Gestión Educativa,Lic Turismo , Lic en Educación Física, Tec Ceremonial y Protocolo,tec Secretariado Ejecutivo" />
+    <meta name="twitter:site" content="@UcasalOficial" />
+    <meta name="twitter:creator" content="@UcasalOficial" />
+
+    <meta name="title" content="Inscripciones Abiertas - Elegí tu carrera universitaria en UCASAL" />
+    <title>Inscripciones Abiertas - UCASAL</title>
+    <meta itemprop="description"
+        content="Inscribite hoy en UCASAL. Queremos que seas parte de nuestra historia. Elegí tu carrera universitaria e iniciá tu camino profesional con nosotros." />
+    <meta itemprop="image" content="http://ucasal.edu.ar/landing/assets/img/scrapping.jpg" />
+    <!-- scripts y css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.5.0/lite-youtube.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script src="./assets/scripts.js" async defer></script>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <!-- ..... -->
+
+    <style>
+        /*SI O SI DEBO DECLARAR LA ALTURA DEL MAPA*/
+        #map {
+            height: 45vh;
+        }
+
+        body {
+            font-family: "Museo Sans";
+        }
+
+        .boton-gris {
+            cursor: pointer;
+            background-color: #616161 !important;
+            color: var(--blanco_ucasal);
+            padding: 5px 3em;
+            border: none;
+            font-size: 1.6em;
+            font-weight: 700;
+            font-family: "Museo Sans";
+        }
+
+        .vacio {
+            color: white;
+        }
+
+        .bigTitle {
+            display: inline-block;
+            color: #B11111;
+            font-weight: 900;
+            font-size: 1.3em;
+            font-family: "Museo Sans";
+        }
+
+        .buttonno {
+            position: relative;
+            transition: all 0.3s ease-in-out;
+            padding-inline: 1.25rem;
+            padding-block: 0.3rem;
+            background-color: #B11111;
+            border-radius: 9999px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            color: #ffff;
+            gap: 10px;
+            border: 3px solid #ffffff4d;
+            outline: none;
+            overflow: hidden;
+            font-size: 15px;
+        }
+
+        .zoom-effect {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .buttonno:hover {
+            transform: scale(1.05);
+            border-color: #fff9;
+        }
+
+        .buttonno:hover .icon {
+            transform: translate(2px);
+        }
+
+        .buttonno:hover::before {
+            animation: shine 1.5s ease-out infinite;
+        }
+
+        .buttonno::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-image: linear-gradient(120deg,
+                    rgba(255, 255, 255, 0) 30%,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0) 70%);
+            top: 0;
+            left: -100px;
+            opacity: 0.6;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100px;
+            }
+
+            60% {
+                left: 100%;
+            }
+
+            to {
+                left: 100%;
+            }
+        }
+
+        @keyframes infinite-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .infinite-scroll {
+            animation: infinite-scroll 20s linear infinite;
+        }
+
+        .infinite-scroll img {
+            height: 100px;
+            margin: 0 50px;
+        }
+
+        .overdot {
+            display: flex;
+            /* Asegura que el contenido texto se centre */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Fondo negro con opacidad */
+            color: white;
+            /* Texto blanco */
+            /* transition: opacity 0.3s ease; */
+            /* Transici&oacute;n suave al cambiar */
+            /* opacity: 1; */
+            /* Siempre visible */
+        }
+
+        .step-dot {
+            position: relative;
+        }
+
+        .dot {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .active .dot {
+            transform: translateY(-50%) scale(1.15);
+            background-color: #ee1818;
+        }
+
+        .active .dot svg,
+        .active .step-title text-black font-bold {
+            color: black;
+            font-weight: 600;
+            /* Cambia el color de los SVGs y los t&iacute;tulos a blanco */
+            transition: color 0.3s ease;
+        }
+
+        ol {
+            position: relative;
+        }
+
+        ol::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: 2px;
+            height: 80%;
+            background: #ccc;
+        }
+
+        /*************/
+
+
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ocultar {
+            opacity: 0;
+        }
+
+        .animar {
+            animation: aparecer 0.5s;
+        }
+
+
+        @media (max-width: 991px) {
+            .porque_post {
+                width: unset;
+            }
+
+            .display-3 {
+                font-size: 2rem;
+            }
+
+            .banner-row {
+                position: relative;
+                margin: 0 !important;
+                display: inline;
+                /* width: 100vw; */
+            }
+
+            .ahora_dist {
+                width: 100vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6PB8G" height="0" width="0"
+            style="display: none; visibility: hidden;"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script>
+        (function (d, s, id) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        })(document, "script", "facebook-jssdk");
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <?php
+  extract($_GET); //<---- PEEESIMA PRÁCTICA, VER SI PODEMOS SACAR ESTO A LA BOSTS!
+  include_once('modulos/form_functions.php');
+  $utm_source = isset($_GET["utm_source"]) ? romper_html($_GET["utm_source"]) : '';
+  $utm_medium = isset($_GET["utm_medium"]) ? romper_html($_GET["utm_medium"]) : '';
+  $utm_term = isset($_GET["utm_term"]) ? romper_html($_GET["utm_term"]) : '';
+  $utm_content = isset($_GET["utm_content"]) ? romper_html($_GET["utm_content"]) : '';
+  $utm_campaign = isset($_GET["utm_campaign"]) ? romper_html($_GET["utm_campaign"]) : '';
+  $idconversion = isset($_GET["idconversion"]) ? romper_html($_GET["idconversion"]) : '';
+  $campaignid = isset($_GET["campaignid"]) ? romper_html($_GET["campaignid"]) : '';
+  $referer = isset($_GET["referer"]) ? romper_html($_GET["referer"]) : '';
+  $gclid = isset($_GET["gclid"]) ? romper_html($_GET["gclid"]) : '';
+
+  if (isset($_SERVER['HTTP_REFERER'])) {
+    $referer = romper_html($_SERVER['HTTP_REFERER']);
+  } else {
+    $referer = isset($_GET["referer"]) ? romper_html($_GET["referer"]) : '';
+  }
+  /********************/
+  $cbx_sede = isset($_GET["cbx_sede"]) ? romper_html($_GET["cbx_sede"]) : '[CBX_SEDE]';
+  $cbx_provincia = isset($_GET["cbx_provincia"]) ? romper_html($_GET["cbx_provincia"]) : '[CBX_PROV]';
+  $cbx_nombre = isset($_GET["cbx_nombre"]) ? romper_html('Sede ' . $_GET["cbx_nombre"]) : '[CBX_NOMBRE]';
+  $cbx_dir = isset($_GET["cbx_dir"]) ? romper_html($_GET["cbx_dir"]) : '[CBX_DIR]';
+  $cbx_mail = isset($_GET["cbx_mail"]) ? romper_html($_GET["cbx_mail"]) : '[CBX_MAIL]';
+  $cbx_tel = isset($_GET["cbx_tel"]) ? romper_html($_GET["cbx_tel"]) : '[CBX_TEL]';
+  $lat = isset($_GET["lat"]) ? romper_html($_GET["lat"]) : '[CBX_LAT]';
+  $lon = isset($_GET["lon"]) ? romper_html($_GET["lon"]) : '[CBX_LNG]';
+  /********************/
+  ?>
+
+    <!-- BARRA DE NAVEGACION -->
+    <nav class="fixed top-0 left-0 right-0 z-50">
+        <div id="sticky-banner" tabindex="-1" class="flex justify-between p-1 bg-[#D6001C]/90 px-4 md:px-[6rem]">
+            <div class="flex items-center mx-auto">
+                <p id="promo" class="flex items-center text-sm font-normal text-white lg:text-lg">
+                    <!-- Se incerta promo -->
+                </p>
+            </div>
+            <div class="flex items-center">
+                <button id="close-banner" type="button"
+                    class="flex-shrink-0 cursor-pointer inline-flex justify-center w-7 h-7 items-center text-white hover:text-black rounded-lg text-sm p-1.5">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close banner</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            // Cierra el banner cuando se hace clic en el botón
+            document.getElementById('close-banner').addEventListener('click', function () {
+                const banner = document.getElementById('sticky-banner');
+                if (banner) {
+                    banner.style.display = 'none';
+                }
+            });
+        </script>
+        <div class="py-1">
+            <!-- Contenedor con fondo compartido -->
+            <div class="flex items-center justify-between py-1 shadow-md bg-white/90 px-4 md:px-[6rem]">
+                <!-- Logo alineado a la izquierda -->
+                <a href="#" class="flex items-center hover:scale-105" onclick="scrollToTop()">
+                    <img src="https://www.ucasal.edu.ar/landing/img/img-test/ucasal-color-h.svg"
+                        class="ucasal-logo w-36" alt="UCASAL LOGO" />
+                </a>
+
+                <!-- Hamburger menu button - en el extremo derecho -->
+                <button id="menu-button" type="button"
+                    class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200 cursor-pointer">
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="https://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Menu container - siempre oculto por defecto -->
+            <div class="items-center justify-between menu-open hidden w-full transition-all ease-in-out duration-300 transform "
+                id="navbar-menu">
+                <ul
+                    class="flex flex-col md:grid md:grid-cols-3 md:justify-center md:text-center md:gap-8 p-2 mt-2 font-medium bg-white/90 backdrop-blur-lg backdrop-opacity-50 left-0 right-0 top-[50px] z-80 transition-all ease-in-out duration-300 transform px-4 md:px-[6rem]">
+                    <li>
+                        <a onclick="location.href='https://www.ucasal.edu.ar/inscripciones/'"
+                            class="block py-2 pl-3 pr-4 text-white hover:bg-gray-100 cursor-pointer bg-[#D6001C]">¡Quiero
+                            inscribirme!</a>
+                    </li>
+                    <li>
+                        <a href="#carreras" onclick="smoothScroll(event, 'carreras')"
+                            class="block py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100">Carreras</a>
+                    </li>
+                    <li>
+                        <a href="#beneficios" onclick="smoothScroll(event, 'beneficios')"
+                            class="block py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100">Beneficios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <main class="hero-bg-option-9 relative w-full overflow-hidden font-sans pb-12">
+        <div class="relative z-10 contenedor @container">
+            <div class="grid lg:grid-cols-2 gap-4 mt-32 @[768px]:mt-24 lg:mt-36 items-center">
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="order-1 space-y-5 lg:space-y-6 pr-0 lg:pr-36 @[768px]:pr-6">
+                    <!-- Titulo página -->
+                    <span class="text-black font-bold text-3xl md:text-5xl">
+                        ¡Tu futuro empieza aquí!<br>
+                    </span>
+                    <!-- Descripcion página -->
+                    <h3 class="text-lg text-gray-800"><br>
+                        Mas de 60 años impulsando el talento de miles de estudiantes con educacion innovadora y un
+                        compromiso firme con el desarrollo personal y profesional.<br>
+                    </h3>
+                    <!-- CTA -->
+                    <button onclick="location.href='#carreras'" class="boton-cta">Conoce nuestras carreras
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                        </svg>
+                    </button>
+                    <!-- Datos -->
+                    <div class="flex flex-row  items-center justify-center text-center text-[#002F6C] font-semibold max-[@[568px]]:gap-12 lg:gap-36 gap-3">
+                        <span class="md:col-start-1 text-lg leading-tight">+120<br><span
+                                class="text-base ml-1">Sedes</span></span>
+                        <span class="md:col-start-3 text-lg leading-tight">+80<br><span
+                                class="text-base">Carreras</span></span>
+                        <span class="md:col-start-5 text-lg leading-tight">+100.000<br><span
+                                class="text-base">Estudiantes</span></span>
+                        <span class="md:col-start-7 text-lg leading-tight">+70.000<br><span
+                                class="text-base">Graduados</span></span>
+                    </div>
+                </div>
+                <!-- COLUMNA DERECHA -->
+                <div class="order-2 space-y-2 lg:space-y-6">
+                    <div
+                        class="brand-glass-effect backdrop-blur-lg px-6 py-2 my-0 rounded-lg shadow-lg border-white/30 border-2">
+                        <!-- Slider de Testimonios -->
+                        <div class="flex items-center justify-between my-2">
+                            <h3 class="text-lg font-bold">Nuestra Comunidad</h3>
+                            <div class="flex space-x-2">
+                                <button id="prev-testimonial"
+                                    class="cursor-pointer bg-gray-400/50 rounded-full p-2 inline">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-chevron-left h-4 w-4">
+                                        <path d="m15 18-6-6 6-6"></path>
+                                    </svg>
+                                </button>
+                                <button id="next-testimonial"
+                                    class="cursor-pointer bg-gray-400/50 rounded-full p-2 inline">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-chevron-right h-4 w-4">
+                                        <path d="m9 18 6-6-6-6"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bg-black/5 p-4 rounded-lg">
+                            <div class="flex items-start space-x-4 transition-opacity" id="contenido-testimonial">
+                                <img id="imagen-testimonial" class="w-12 h-12 rounded-full bg-contain bg-center"
+                                    src="" />
+                                <div class="flex-1">
+                                    <p id="texto-testimonial" class="mb-2 text-sm"></p>
+                                    <div id="nombre-testimonial" class="font-semibold text-[#D6001C] text-sm"></div>
+                                    <div id="carrera-testimonial" class="text-xs text-[#002F6C]"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center space-x-2 mt-4" id="puntos-testimonios"></div>
+                        </div>
+                        <div class="space-y-4 my-2" id="carreras-elegidas">
+                            <h3 class="text-lg font-bold">Carreras Más Elegidas</h3>
+                            <div id="carrerasElegidas" class="grid grid-cols-2 gap-4">
+                                <!-- Dinamicamente -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/50 backdrop-blur-lg py-3 my-2 lg:my-4 pb-6 rounded-lg mx-auto">
+                        <div class="grid grid-rows-2 text-center items-center justify-center">
+                            <h2 class="flex-1 font-bold mb-2">
+                                ¿Listo para Comenzar?
+                            </h2>
+                            <button onclick="location.href='#formu'" class="boton-cta mx-auto">Quiero más información
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <!-- Modalidad -->
+    <section class="carreras-section-brand font-sans py-[30px]">
+        <div class="bg-[url(./public/potencia/Modalidades.webp)] absolute inset-0 bg-no-repeat bg-cover bg-center z-20">
+        </div>
+        <div class="absolute inset-0 bg-black/30 z-10"></div>
+        <div class="w-full p-6 z-30 relative">
+            <div class="text-center md:text-white text-black mb-5 font-bold">
+                <h2>¡Conocé sobre nuestra modalidad!</h2>
+                <p class="text-sm font-semibold"><!-- Si se desea una subdescripcion --></p>
+            </div>
+            <div class="gap-6 contenedor flex flex-col items-end justify-end z-30" id="modalidades">
+                <!-- Se genera dinamicamente -->
+            </div>
+        </div>
+    </section>
+    <div class="w-full max-w-4xl p-6 mx-auto" id="carreras">
+        <div class="text-center mb-5 font-bold">
+            <h1>¡Explora todas nuestras carreras!</h1>
+            <p class="text-sm font-semibold"><!-- Si se desea una subdescripcion --></p>
+        </div>
+    </div>
+    <!-- Barra de busqueda -->
+    <div class="contenedor mb-4">
+        <div class="relative flex flex-row gap-4">
+            <input type="text" id="search-bar" placeholder="Buscar carreras..."
+                class="w-full pl-8 py-2 border border-gray-400 rounded-[8px] focus:outline-none focus:ring-1 focus:ring-gray-500">
+            <div class="absolute inset-y-0 left-2 flex items-center pointer-events-none">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+            <div class="">
+                <button id="filters-btn"
+                    class="cursor-pointer w-full flex items-center justify-between px-4 py-3 boton-cta text-white rounded-lg font-medium shadow-md">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.707A1 1 0 013 7V4z">
+                            </path>
+                        </svg>
+                        <span>Filtros</span>
+                        <span id="active-filters-count"
+                            class="bg-white text-[#D6001C] px-2 py-1 rounded-full text-xs font-bold hidden">0</span>
+                    </div>
+                    <svg id="filters-arrow" class="w-5 h-5 transition-transform duration-200" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+
+                <!-- Dropdown de filtros -->
+                <div id="filters-dropdown"
+                    class="hidden absolute z-10 left-0 right-0 mt-4 bg-white/90 backdrop-blur border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-4 space-y-4">
+                        <!-- Filtros principales -->
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Filtros principales</h4>
+                            <div class="flex flex-col md:grid md:grid-cols-3 gap-2" id="filtros">
+                                <!-- Se genera dinámicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Separador -->
+                        <hr class="border-gray-200">
+
+                        <!-- Filtros por área -->
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Buscar por área</h4>
+                            <div class="grid grid-cols-3 md:flex md:flex-row md:w-full gap-2" id="filtros-categoria">
+                                <!-- Se genera dinámicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Botones de acción -->
+                        <div class="pt-2 grid grid-cols-2 gap-6">
+                            <button id="clear-all-filters"
+                                class="cursor-pointer w-full px-3 py-2 bg-gray-100 text-gray-700 rounded-md text-sm font-medium">
+                                Limpiar todo
+                            </button>
+                            <button class="boton-cta text-center" style="width: 100%;" id="aplicar-filtros">
+                                Aplicar filtros
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carreras -->
+    <div class="contenedor relative bg-gradient-to-b from-gray-100 via-white to-gray-100 py-2 rounded-xl shadow-inner">
+        <!-- Main grid container -->
+        <div class="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 md:gap-8 overflow-y-scroll h-[800px] scrollbar-thin px-2 relative"
+            id="listaCarreras">
+            <!-- Dinamicamente -->
+        </div>
+        <!-- Scroll indicator at bottom with arrow -->
+        <div class="absolute bottom-0 left-0 right-0 h-12  z-10 pointer-events-none flex items-end justify-center pb-2">
+            <div class="animate-bounce">
+                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="relative w-full overflow-hidden snap-y snap-mandatory mt-6" id="formu">
+        <div class="absolute inset-0 md:bg-[url('./public/fondo_graduados.jpg')] bg-no-repeat bg-cover bg-center z-0"></div>
+        <div class="absolute inset-0 hidden md:block bg-black/30 z-10"></div>
+        <div class="relative z-20 flex flex-col md:flex-row w-full max-w-none py-2">
+            <div class="flex-1 text-center w-full max-w-4xl px-6 pt-6 md:contenedor">
+                <h2 class="md:text-white z-20 relative font-bold">¡Solicitá más información!</h2>
+                <p class="md:text-white z-20 relative text-lg md:block hidden">
+                    Convertite en el profesional que el mundo necesita.<br> ¿Estás listo?
+                </p>
+            </div>
+            <!-- Formulario -->
+            <form id="pedidoinfo" method="post" enctype="multipart/form-data" action="/postulantes_mail1.php"
+                autocomplete="on"
+                class="max-md:border-gray-200 contenedor max-md:border-2 border-y-2 border-gray-100 max-md:shadow-lg p-5 min-md:w-[40%] min-md:flex-shrink-0 bg-white/95 z-30">
+                <!-- input defaul -->
+                <input type="hidden" value="4" name="id_origen" id="id_origen" />
+                <!-- <input type="hidden" value=" " name="apellido" id="apellido" /> -->
+                <input type="hidden" value="postulantes" name="tabla" />
+                <input type="hidden" id="addr" name="addr" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>" />
+                <input type="hidden" id="agent" name="agent" value="<?php echo $_SERVER['HTTP_USER_AGENT']; ?>" />
+                <input type="hidden" name="utm_source" value="<?php echo $utm_source; ?>" />
+                <input type="hidden" name="utm_medium" value="<?php echo $utm_medium; ?>" />
+                <input type="hidden" name="utm_term" value="<?php echo $utm_term; ?>" />
+                <input type="hidden" name="utm_content" value="<?php echo $utm_content; ?>" />
+                <input type="hidden" name="utm_campaign" value="<?php echo $utm_campaign; ?>" />
+                <input type="hidden" name="idconversion" value="<?php echo $idconversion; ?>" />
+                <input type="hidden" name="campaignid" value="<?php echo $campaignid; ?>" />
+                <input type="hidden" name="referer" value="<?php echo $referer; ?>" />
+                <input name="gclid" type="hidden" value="<?php echo $gclid; ?>" />
+                <input type="hidden" name="tkp" value="/landing/enviado-distancia-2021.php">
+                <input type="hidden" name="fkp" value="/landing/enviado-distancia-2021.php?id=404">
+
+                <!-- Nombre y Apellido -->
+                <div class="grid md:grid-cols-3 md:gap-6">
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input type="text" name="nombre" id="nombre" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+"
+                            onkeypress="return /[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/i.test(event.key)"
+                            class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-gray-900 border border-gray-300 appearance-none bg-white/80 focus:outline-none focus:ring-0 focus:border-blue-600"
+                            placeholder="Nombre" required tabindex="1" />
+                    </div>
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input type="text" name="apellido" id="apellido" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+"
+                            onkeypress="return /[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/i.test(event.key)"
+                            class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-gray-900 border border-gray-300 appearance-none bg-white/80 focus:outline-none focus:ring-0 focus:border-blue-600"
+                            placeholder="Apellido" required tabindex="2" />
+                    </div>
+                    <!-- Email -->
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input type="email" name="email" id="email"
+                            class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-gray-900 border border-gray-300 appearance-none bg-white/80 focus:outline-none focus:ring-0 focus:border-blue-600"
+                            placeholder="Email" required tabindex="2" />
+                    </div>
+                </div>
+
+                <!-- DNI -->
+                <!-- <div class="relative z-0 w-full mb-4 group">
+        <input type="text" name="dni" id="dni" pattern="[0-9]{7,8}" maxlength="8" inputmode="numeric"
+          class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-gray-900 border rounded-[8px]  border-gray-300 appearance-none bg-white/80 focus:outline-none focus:ring-0 focus:border-blue-600"
+          placeholder="DNI para Promociones" tabindex="3"
+          onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" />
+      </div> -->
+
+                <!-- Carrera -->
+                <div class="relative z-0 w-full mb-4 group grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <select name="modo" id="modo"
+                        class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600"
+                        required onchange="cambiar_modo();" tabindex="5">
+                        <!-- Opciones del select -->
+                        <option value="" disabled selected>Modalidad</option>
+                        <option value="1">Presencial</option>
+                        <option value="7">Online</option>
+                    </select>
+
+                    <?php
+          if ($cbx_sede > 0) {
+            echo '
+        <input name="cbx_provincia" id="cbx_provincia1" type="hidden" value="' . $cbx_provincia . '">
+        <input name="cbx_sede" id="cbx_sede1" type="hidden" value="' . $cbx_sede . '">
+        ';
+          } else {
+            echo '
+          <!-- Provincia -->
+          <div class="relative z-0 w-full group">
+            <div class="select-wrapper" data-tooltip="Seleccioná una modalidad primero">
+              <select name="cbx_provincia" id="cbx_provincia" disabled
+                class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form"
+                required onchange="cargar_sedes();" tabindex="5">
+                <option value="" disabled selected>Provincia</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Sede -->
+          <div class="relative z-0 w-full group">
+            <div class="select-wrapper" data-tooltip="Seleccioná una provincia primero">
+              <select name="cbx_sede" id="cbx_sede" onchange="cargar_carreras()" disabled
+                class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form"
+                required tabindex="6">
+                <option value="" disabled selected>Sede</option>
+              </select>
+            </div>
+          </div>
+        ';
+          }
+          ?>
+                    <div class="select-wrapper" data-tooltip="Seleccioná una sede primero">
+                        <select name="cbx_carrera" id="cbx_carrera"
+                            class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form"
+                            required tabindex="4">
+                            <!-- Opciones del select -->
+                            <option value="" disabled selected>Seleccionar Carrera</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Teléfono -->
+                <div class="grid grid-cols-8 gap-4 md:grid-cols-3">
+                    <div class="relative z-0 w-full col-span-3 mt-6 md:col-span-1 group">
+                        <div class="relative w-full group @container">
+                            <input name="tipo_tel" tabindex="9" type="hidden" value="cel" />
+                            <input type="text"
+                                class="block @[768px]:w-[500px] w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:outline-none focus:ring-0 focus:border-blue-600 form-control form-control-sm input-style"
+                                id="phone" name="ddi_pais" />
+                            <label for="tel"
+                                class="absolute md:text-base text-[0.7rem] text-black duration-300 transform md:-translate-y-1 scale-75 -top-1 left-0 -z-10 origin-[0] -mt-4">Código
+                                país</label>
+                        </div>
+                    </div>
+                    <div class="relative max-md:col-span-2 mt-6 group">
+                        <div class="relative z-0 w-full group">
+                            <input type="text" name="cod_area" id="cod" size="4" maxLength="4"
+                                class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:outline-none focus:ring-0 focus:border-blue-600"
+                                placeholder="Ej: 387" required tabindex="5"
+                                oninput="validarLongitudTelefono(this, 4)" />
+                            <label for="cod"
+                                class="absolute md:text-base text-[0.7rem] text-black duration-300 transform md:-translate-y-1 scale-75 -top-1 left-0 -z-10 origin-[0] -mt-4">Código
+                                Área
+                            </label>
+                        </div>
+                    </div>
+                    <div class="relative z-0 w-full max-md:col-span-3 mt-6 group">
+                        <div class="relative">
+                            <span
+                                class="text-[0.8rem] absolute left-0 top-[55%] transform -translate-y-1/2 text-gray-700 border px-1 border-gray-500 bg-white/80 left-0.5 flex items-center h-[1.25rem] mt-0">15</span>
+                            <input type="text" name="tel" id="tel" size="8" maxLength="8"
+                                class="block w-full px-0 pt-2 pb-1 text-sm text-black border border-gray-300 shadow-sm pl-7 bg-white/80 focus:outline-none focus:ring-0 focus:border-blue-600"
+                                placeholder="Ej: 7790015" required tabindex="6"
+                                oninput="validarLongitudTelefono(this, 8)" />
+                            <label for="tel"
+                                class="absolute text-md text-black duration-300 transform -translate-y-1 scale-75 -top-1 left-0 -z-10 origin-[0] -mt-4">N&uacute;mero
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- reCAPTCHA -->
+                <div class="flex justify-center mt-3 g-recaptcha" tabindex="10" data-callback="reCALLBACK"
+                    data-sitekey="6LetQBEjAAAAAMewiwE_zXYFkT0IV-dx8_wW39ft"></div>
+
+                <!-- Botón de envío -->
+                <div class="flex justify-center mt-4">
+                    <button id="formButton" type="submit"
+                        class="text-white bg-[#242F41] hover:bg-blue-800 font-medium text-sm w-full sm:w-auto px-5 py-2.5 text-center transition-colors duration-200 ease-in-out scale-105 boton-inactivo-form"
+                        tabindex="11" onclick="check()" disabled>
+                        Enviar
+                    </button>
+                    <div id="spinnerContainer" class="hidden" role="status">
+                        <svg class="w-8 h-8 text-gray-200 animate-spin fill-[#B11111]" viewBox="0 0 100 101" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                fill="currentColor" />
+                            <path
+                                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                fill="currentFill" />
+                        </svg>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="md:pb-12">
+        <div class="contenedor my-8" id="beneficios">
+            <div class="mb-5 font-extrabold text-center hidden md:block">
+                <h2>¡Viví tu experiencia universitaria!</h2>
+            </div>
+            <div class="mb-5 font-extrabold text-center md:hidden block">
+                <h2>¡Viví tu experiencia!</h2>
+            </div>
+        </div>
+        <div class="flex xl:flex-row flex-col contenedor gap-2 xl:gap-8 xl:px-12">
+            <!-- Imagenes -->
+            <div class="relative group flex flex-1 justify-center items-center mx-auto">
+                <div class="relative bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-2xl">
+                    <div class="aspect-square md:w-96 w-64">
+                        <img src="./public/kao.webp" alt="Placeholder Image"
+                            class="w-full h-full object-cover object-center rounded-2xl shadow-lg transition-all ease-in-out duration-700" />
+                    </div>
+                </div>
+            </div>
+            <!-- Items -->
+            <div class="grid grid-cols-2 gap-4 xl:ml-12 flex-auto" id="potencia">
+                <!-- dinamico -->
+            </div>
+        </div>
+    </div>
+    <div id="financiavenecia" class="mb-5"></div>
+    <!-- FINANCIA ARANCELES -->
+    <div class="relative bg-fixed bg-center bg-cover"
+        style="background-image: url('/landing/ingreso-carreras-ucasal/close-up-person-doing-online-shopping.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 contenedor">
+            <h2 class="py-5 text-white font-bold font-sans shadow-black">Financia tus aranceles con:
+            </h2>
+            <div class="grid my-5 text-white grid-cols-2" id="aranceles">
+                <!-- Dinamico -->
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor md:my-6" id="sedes">
+        <section class="seccion">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <!-- Fila 1, Columna 1 - Mapa de Sedes -->
+                <div class="flex flex-col justify-start">
+                    <h2 class="mb-5 bigTitle shadow-black"><span style="color: rgb(97, 96, 96)">Nuestras sedes:</span>
+                    </h2>
+                    <iframe src="https://ucasal.edu.ar/mapa_sedes/mapa_sedes_ucasal.html"
+                        style="height: 45vh;width:100%; border: 0;" allowfullscreen></iframe>
+                </div>
+                <!-- Fila 1, Columna 2 - Recorrido 360 -->
+                <div class="flex flex-col justify-start overflow-hidden">
+                    <h2 class="mb-5 bigTitle shadow-black"><span style="color: rgb(97, 96, 96)">Nuestro campus:</span>
+                    </h2>
+                    <iframe src="https://ucasal.edu.ar/recorrido360/" style="height: 45vh;width:100%; border: 0;"
+                        class="shadow video"></iframe>
+                </div>
+            </div>
+            <!-- Botones del Mapa -->
+            <div class="grid items-center justify-between grid-cols-1 gap-4 p-4 md:grid-cols-2">
+                <!-- Columna 1 -->
+                <div class="flex justify-center">
+                    <div class="relative z-10" style="width: 300px; max-width: 350px;">
+                        <a class="buttonno block text-white bg-[#B11111] border border-white rounded-full text-base font-medium py-2 px-3 text-center transition-transform transform-gpu hover:scale-105 cursor-pointer"
+                            onclick="scrollToForm('#formu')">
+                            ¡Más Info! 📝
+                        </a>
+                    </div>
+                </div>
+                <!-- Columna 2 -->
+                <div class="flex justify-center">
+                    <div class="relative z-10" style="width: 300px; max-width: 350px;">
+                        <a href="https://www.ucasal.edu.ar/inscripciones/"
+                            class="buttonno block text-white bg-[#B11111] border border-white rounded-full text-base font-medium py-2 px-3 text-center transition-transform transform-gpu hover:scale-105 ">
+                            ¡Quiero Inscribirme Online! 💻
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="bg-[#B11111] rounded-b-lg">
+        <div class="contenedor">
+            <div class="w-full py-4 lg:py-4">
+                <div class="relative">
+                    <div class="flex md:absolute md:-bottom-[45px] md:right-0 mb-6 md:mb-0">
+                        <a href="#" class="flex items-center">
+                            <!-- Aquí pasamos el prop isoColor como true para que el logo sea blanco -->
+                            <img src=/landing/ingreso-carreras-ucasal/isologoBlanco.svg class="ucasal-logo w-36"
+                                alt="UCASAL LOGO" />
+                        </a>
+                    </div>
+                </div>
+                <a href="https://www.ucasal.edu.ar" class="text-xs text-white">
+                    <i class="fas fa-home"></i> www.ucasal.edu.ar
+                </a>
+                <p class="text-xs text-white">
+                    <i class="fas fa-phone"></i> 54 0387 4268800 / 0810-555-(822725)
+                </p>
+                <p class="text-xs text-white">
+                    <i class="fas fa-envelope"></i> admision@ucasal.edu.ar
+                </p>
+                <hr class="my-2 border-gray-200 sm:mx-auto dark:border-white-700 lg:my-4" />
+                <div class="flex justify-center align-middle">
+                    <span class="text-xs text-white dark:text-white">
+                        &copy; 2024 <a href="https://www.ucasal.edu.ar/" class="hover:underline">UCASAL</a>. Construi tu
+                        historia.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--Google Analytics-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+                i[r] ||
+                function () {
+                    (i[r].q = i[r].q || []).push(arguments);
+                }),
+                (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(
+            window,
+            document,
+            "script",
+            "//www.google-analytics.com/analytics.js",
+            "ga"
+        );
+        ga("create", "UA-38866898-1", "auto");
+        ga("require", "displayfeatures");
+        ga("send", "pageview");
+    </script>
+
+    <!-- jquery y mapa -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQig4WgRBLxxFrs1XwHBk5LEebZYhzr0k&callback=initMap"
+        async defer></script>
+    <script src="/js/mapsgoogle/markerclusterer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js"></script>
+    <script>
+        // Script para el input de telefono 
+        document.addEventListener('DOMContentLoaded', function () {
+            const input = document.querySelector("#phone");
+            if (input && window.intlTelInput) {
+                var iti = window.intlTelInput(input, {
+                    fixDropdownWidth: false,
+                    dropdownContainer: document.body,
+                    initialCountry: "ar",
+                    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/utils.js"
+                });
+
+                // Establecer código de país inicial
+                if (iti.getSelectedCountryData()) {
+                    input.value = iti.getSelectedCountryData().dialCode;
+                    const codigoPais = document.getElementById("codigo_pais");
+                    if (codigoPais) {
+                        codigoPais.innerHTML = iti.getSelectedCountryData().dialCode;
+                    }
+                }
+
+                // Manejar cambio de país
+                input.addEventListener("countrychange", function () {
+                    var countryData = iti.getSelectedCountryData();
+                    if (countryData) {
+                        input.value = countryData.dialCode;
+                        const codigoPais = document.getElementById("codigo_pais");
+                        if (codigoPais) {
+                            codigoPais.innerHTML = countryData.dialCode;
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
