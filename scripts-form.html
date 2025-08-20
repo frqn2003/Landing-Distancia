@@ -1,0 +1,577 @@
+<script>
+/* --------------------- Inicialización de Carreras Modo 7 (Distancia) ----------------------------- */
+(async () => {
+  try {
+    // Traigo las carreras específicamente para modo 7 (distancia)
+    const resp = await fetch(
+      `../../landing/consultas/getCarrerasJson.php?modo=7`
+    );
+    
+    if (!resp.ok) {
+      throw new Error(`HTTP error! status: ${resp.status}`);
+    }
+    
+    const data = await resp.json();
+    console.log("Datos recibidos del servidor:", data);
+    
+    // Filtro las carreras de distancia 2025 (códigos específicos)
+    let carreras2025 = ["9", "10", "11", "14", "15", "16", "17", "30", "49", "58", "96", "113", "133", "138", "161", "185", "186", "187", "194", "196", "214", "244", "250", "336", "355", "360", "361", "363", "368", "378", "383"];
+    
+    let carrerasDistancia = data
+      .filter((carrera) => carreras2025.includes(String(carrera.codcar)))
+      .map((carrera) => {
+        return {
+          ...carrera,
+          // Filtrar sedes si es necesario (comentado por ahora)
+          // provincias: carrera.provincias.filter(provincia => provincia.id_sede !== 500)
+        };
+      });
+    
+    console.log("Carreras filtradas para distancia:", carrerasDistancia);
+    
+    // Guardo el listado en localStorage con clave específica para distancia
+    window.localStorage.setItem("carrerasDistancia", JSON.stringify(carrerasDistancia));
+    
+    // Inicializar los selects del formulario
+    initializeFormSelects();
+    
+    // Llenar el select de carreras
+    populateCarrerasSelect(carrerasDistancia);
+    
+    // Configurar event listeners
+    setupFormEventListeners();
+    
+  } catch (error) {
+    console.error("❌ Error al cargar carreras de distancia:", error);
+    mostrarErrorEnFormulario("No se pudieron cargar las carreras en este momento.");
+  }
+})();
+
+/* --------------------- Funciones de Inicialización ----------------------------- */
+function initializeFormSelects() {
+  const selects = [
+    { id: "cbx_carrera", placeholder: "Seleccione Carrera" },
+    { id: "cbx_provincia", placeholder: "Seleccione Provincia" },
+    { id: "cbx_sede", placeholder: "Seleccione Sede" }
+  ];
+  
+  selects.forEach(select => {
+    const element = document.getElementById(select.id);
+    if (element) {
+      element.innerHTML = `<option value="" disabled selected>${select.placeholder}</option>`;
+    }
+  });
+  
+  // Deshabilitar provincia y sede inicialmente
+  disableSelect("cbx_provincia", "Seleccione una carrera primero");
+  disableSelect("cbx_sede", "Seleccione una provincia primero");
+}
+
+function populateCarrerasSelect(carreras) {
+  const carreraSelect = document.getElementById("cbx_carrera");
+  if (!carreraSelect) return;
+  
+  // Ordenar carreras alfabéticamente
+  const carrerasOrdenadas = carreras.sort((a, b) => 
+    a.nombre_carrera.localeCompare(b.nombre_carrera)
+  );
+  
+  carrerasOrdenadas.forEach((carrera) => {
+    const option = document.createElement("option");
+    option.value = carrera.codcar;
+    option.textContent = carrera.nombre_carrera;
+    carreraSelect.appendChild(option);
+  });
+  
+  // Si hay una sola carrera, seleccionarla automáticamente
+  if (carrerasOrdenadas.length === 1) {
+    carreraSelect.value = carrerasOrdenadas[0].codcar;
+    cargar_provincias();
+  }
+}
+
+function setupFormEventListeners() {
+  // Event listener para cambio de carrera
+  const carreraSelect = document.getElementById("cbx_carrera");
+  if (carreraSelect) {
+    carreraSelect.addEventListener("change", cargar_provincias);
+  }
+  
+  // Event listener para cambio de provincia
+  const provinciaSelect = document.getElementById("cbx_provincia");
+  if (provinciaSelect) {
+    provinciaSelect.addEventListener("change", cargar_sedes);
+  }
+  
+  // Event listener para cambio de sede
+  const sedeSelect = document.getElementById("cbx_sede");
+  if (sedeSelect) {
+    sedeSelect.addEventListener("change", validarFormularioCompleto);
+  }
+}
+
+/* --------------------- Funciones de Carga de Datos ----------------------------- */
+function cargar_provincias() {
+  const carrera = document.getElementById("cbx_carrera")?.value;
+  
+  if (!carrera) {
+    resetProvinciasYSedes();
+    return;
+  }
+  
+  const carrerasArray = JSON.parse(window.localStorage.getItem("carrerasDistancia") || "[]");
+  const carreraSeleccionada = carrerasArray.find(c => c.codcar == carrera);
+  
+  if (!carreraSeleccionada || !carreraSeleccionada.provincias) {
+    resetProvinciasYSedes();
+    return;
+  }
+  
+  // Obtener provincias únicas
+  const provinciasUnicas = getProvinciasUnicas(carreraSeleccionada.provincias);
+  
+  // Llenar select de provincias
+  const provinciaSelect = document.getElementById("cbx_provincia");
+  if (provinciaSelect) {
+    provinciaSelect.innerHTML = '<option value="" disabled selected>Seleccione Provincia</option>';
+    
+    provinciasUnicas.forEach(provincia => {
+      const option = document.createElement("option");
+      option.value = provincia.id_provincia;
+      option.textContent = provincia.nombre_provincia;
+      provinciaSelect.appendChild(option);
+    });
+    
+    // Habilitar select de provincia
+    enableSelect("cbx_provincia");
+    
+    // Si hay una sola provincia, seleccionarla automáticamente
+    if (provinciasUnicas.length === 1) {
+      provinciaSelect.value = provinciasUnicas[0].id_provincia;
+      cargar_sedes();
+    }
+  }
+  
+  // Reset sedes
+  resetSedes();
+}
+
+function cargar_sedes() {
+  const carrera = document.getElementById("cbx_carrera")?.value;
+  const provincia = document.getElementById("cbx_provincia")?.value;
+  
+  if (!carrera || !provincia) {
+    resetSedes();
+    return;
+  }
+  
+  const carrerasArray = JSON.parse(window.localStorage.getItem("carrerasDistancia") || "[]");
+  const carreraSeleccionada = carrerasArray.find(c => c.codcar == carrera);
+  
+  if (!carreraSeleccionada || !carreraSeleccionada.provincias) {
+    resetSedes();
+    return;
+  }
+  
+  // Filtrar sedes por provincia
+  const sedesPorProvincia = carreraSeleccionada.provincias
+    .filter(p => p.id_provincia == provincia)
+    .sort((a, b) => a.nombre_sede.localeCompare(b.nombre_sede));
+  
+  // Llenar select de sedes
+  const sedeSelect = document.getElementById("cbx_sede");
+  if (sedeSelect) {
+    sedeSelect.innerHTML = '<option value="" disabled selected>Seleccione Sede</option>';
+    
+    sedesPorProvincia.forEach(sede => {
+      const option = document.createElement("option");
+      option.value = sede.id_sede;
+      option.textContent = sede.nombre_sede;
+      sedeSelect.appendChild(option);
+    });
+    
+    // Habilitar select de sede
+    enableSelect("cbx_sede");
+    
+    // Si hay una sola sede, seleccionarla automáticamente
+    if (sedesPorProvincia.length === 1) {
+      sedeSelect.value = sedesPorProvincia[0].id_sede;
+      validarFormularioCompleto();
+    }
+  }
+}
+
+/* --------------------- Funciones de Utilidad ----------------------------- */
+function getProvinciasUnicas(provincias) {
+  const provinciaMap = new Map();
+  
+  provincias.forEach(provincia => {
+    if (!provinciaMap.has(provincia.id_provincia)) {
+      provinciaMap.set(provincia.id_provincia, provincia);
+    }
+  });
+  
+  return Array.from(provinciaMap.values())
+    .sort((a, b) => a.nombre_provincia.localeCompare(b.nombre_provincia));
+}
+
+function resetProvinciasYSedes() {
+  resetSelect("cbx_provincia", "Seleccione Provincia", "Seleccione una carrera primero");
+  resetSedes();
+}
+
+function resetSedes() {
+  resetSelect("cbx_sede", "Seleccione Sede", "Seleccione una provincia primero");
+}
+
+function resetSelect(selectId, placeholder, tooltip = "") {
+  const select = document.getElementById(selectId);
+  if (select) {
+    select.innerHTML = `<option value="" disabled selected>${placeholder}</option>`;
+    disableSelect(selectId, tooltip);
+  }
+}
+
+function enableSelect(selectId) {
+  const select = document.getElementById(selectId);
+  if (select) {
+    select.removeAttribute("disabled");
+    select.className = select.className.replace(/boton-inactivo-form/g, "").trim();
+    
+    const wrapper = select.closest('.select-wrapper');
+    if (wrapper) {
+      wrapper.classList.add('enabled');
+      wrapper.setAttribute('data-tooltip', '');
+    }
+  }
+}
+
+function disableSelect(selectId, tooltip = "") {
+  const select = document.getElementById(selectId);
+  if (select) {
+    select.setAttribute("disabled", "disabled");
+    if (!select.className.includes("boton-inactivo-form")) {
+      select.className += " boton-inactivo-form";
+    }
+    
+    const wrapper = select.closest('.select-wrapper');
+    if (wrapper) {
+      wrapper.classList.remove('enabled');
+      wrapper.setAttribute('data-tooltip', tooltip);
+    }
+  }
+}
+
+function mostrarErrorEnFormulario(mensaje) {
+  const selects = ["cbx_carrera", "cbx_provincia", "cbx_sede"];
+  
+  selects.forEach(selectId => {
+    const select = document.getElementById(selectId);
+    if (select) {
+      select.innerHTML = `<option value="" disabled selected>${mensaje}</option>`;
+      disableSelect(selectId);
+    }
+  });
+}
+
+/* --------------------- Función para preseleccionar carrera ----------------------------- */
+function carreraForm(cod) {
+  if (!cod) return;
+  
+  cod = parseInt(cod);
+  const carrerasArray = JSON.parse(window.localStorage.getItem("carrerasDistancia") || "[]");
+  
+  if (!carrerasArray.length) {
+    console.error("No hay carreras cargadas en localStorage");
+    return;
+  }
+  
+  const carreraSeleccionada = carrerasArray.find(carrera => carrera.codcar === cod);
+  
+  if (!carreraSeleccionada) {
+    console.error("Carrera no encontrada:", cod);
+    return;
+  }
+  
+  // Seleccionar la carrera
+  const carreraSelect = document.getElementById("cbx_carrera");
+  if (carreraSelect) {
+    carreraSelect.value = cod;
+    cargar_provincias();
+    
+    // Si hay una sola provincia, seleccionarla automáticamente
+    setTimeout(() => {
+      const provinciaSelect = document.getElementById("cbx_provincia");
+      if (provinciaSelect && provinciaSelect.options.length === 2) { // 1 placeholder + 1 opción
+        provinciaSelect.selectedIndex = 1;
+        cargar_sedes();
+        
+        // Si hay una sola sede, seleccionarla automáticamente
+        setTimeout(() => {
+          const sedeSelect = document.getElementById("cbx_sede");
+          if (sedeSelect && sedeSelect.options.length === 2) { // 1 placeholder + 1 opción
+            sedeSelect.selectedIndex = 1;
+            validarFormularioCompleto();
+          }
+        }, 100);
+      }
+    }, 100);
+  }
+  
+  // Scroll al formulario
+  scrollToForm();
+}
+
+/* --------------------- Funciones de Validación y UI ----------------------------- */
+function validarFormularioCompleto() {
+  const form = document.getElementById('pedidoinfo') || document.querySelector('form');
+  if (!form) return;
+  
+  const requiredInputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+  const btn = document.getElementById('formButton');
+  
+  if (!btn) return;
+  
+  let allFieldsCompleted = true;
+  
+  requiredInputs.forEach(input => {
+    if (!input.value.trim()) {
+      allFieldsCompleted = false;
+    }
+  });
+  
+  // Verificar también reCAPTCHA si está disponible
+  const recaptchaCompleted = window.recaptchaCompleted || false;
+  
+  if (allFieldsCompleted && recaptchaCompleted) {
+    btn.removeAttribute("disabled");
+    btn.classList.add("boton-activo", "boton-rojo");
+    btn.classList.remove("boton-inactivo", "boton-gris");
+  } else {
+    btn.setAttribute("disabled", "disabled");
+    btn.classList.remove("boton-activo", "boton-rojo");
+    btn.classList.add("boton-inactivo", "boton-gris");
+  }
+}
+
+function scrollToForm() {
+  const componente = document.getElementById("pedidoinfo");
+  if (!componente) return;
+  
+  const componentePosicion = componente.offsetTop;
+  
+  window.scrollTo({
+    top: componentePosicion - 110,
+    behavior: "smooth"
+  });
+  
+  // Efecto de zoom
+  setTimeout(() => {
+    componente.classList.add("zoom-effect");
+    
+    setTimeout(() => {
+      componente.classList.remove("zoom-effect");
+    }, 1000);
+  }, 500);
+}
+
+/* --------------------- Funciones de Formulario ----------------------------- */
+function check() {
+  const formButton = document.getElementById('formButton');
+  const spinnerContainer = document.getElementById("spinnerContainer");
+  
+  if (!formButton || !spinnerContainer) return false;
+  
+  // Validar teléfono
+  const telInput = document.getElementsByName("tel")[0];
+  const codAreaInput = document.getElementsByName("cod_area")[0];
+  
+  if (telInput && codAreaInput) {
+    const totalLength = telInput.value.length + codAreaInput.value.length;
+    if (totalLength > 1 && totalLength < 10) {
+      telInput.setCustomValidity("Escribe Teléfono y Código de Área completos");
+      return false;
+    } else {
+      telInput.setCustomValidity("");
+    }
+  }
+  
+  // Verificar validez del formulario
+  const form = document.getElementById('pedidoinfo') || document.querySelector('form');
+  if (form && form.checkValidity()) {
+    formButton.classList.add("hidden");
+    spinnerContainer.classList.remove("hidden");
+    return true;
+  }
+  
+  return false;
+}
+
+function reCALLBACK(token) {
+  console.log("reCAPTCHA token recibido:", token);
+  
+  if (token) {
+    window.recaptchaCompleted = true;
+    validarFormularioCompleto();
+  } else {
+    window.recaptchaCompleted = false;
+    alert("Demuestra que no eres un robot!");
+  }
+}
+
+function validarLongitudTelefono(inputTelefono, longitudMaxima) {
+  if (!inputTelefono) return;
+  
+  const telefono = inputTelefono.value;
+  const telefonoLimpio = telefono.replace(/\D/g, '');
+  
+  if (telefonoLimpio.length > longitudMaxima) {
+    inputTelefono.value = telefonoLimpio.slice(0, longitudMaxima);
+  } else {
+    inputTelefono.value = telefonoLimpio;
+  }
+}
+
+/* --------------------- Funciones de Navegación ----------------------------- */
+function smoothScroll(event, id) {
+  event.preventDefault();
+  const section = document.getElementById(id);
+  if (section) {
+    const componentePosicion = section.offsetTop;
+    window.scrollTo({
+      top: componentePosicion - 110,
+      behavior: 'smooth'
+    });
+  }
+}
+
+/* --------------------- Inicialización de Event Listeners ----------------------------- */
+document.addEventListener('DOMContentLoaded', function() {
+  // Configurar validación en tiempo real del formulario
+  const form = document.getElementById('pedidoinfo') || document.querySelector('form');
+  if (form) {
+    const requiredInputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+    
+    requiredInputs.forEach(input => {
+      input.addEventListener('input', validarFormularioCompleto);
+      input.addEventListener('change', validarFormularioCompleto);
+      input.addEventListener('blur', validarFormularioCompleto);
+    });
+  }
+  
+  // Configurar menú móvil
+  setupMobileMenu();
+});
+
+function setupMobileMenu() {
+  const toggleBtn = document.getElementById("toggleBtn");
+  const menu = document.getElementById("navbar-sticky");
+  
+  if (!toggleBtn || !menu) return;
+  
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+  
+  toggleBtn.addEventListener("click", function() {
+    if (isMobile()) {
+      menu.style.display = menu.style.display === "none" ? "block" : "none";
+      toggleBtn.classList.toggle("open");
+    }
+  });
+  
+  document.addEventListener("click", function(event) {
+    if (isMobile() && !menu.contains(event.target) && !toggleBtn.contains(event.target)) {
+      menu.style.display = "none";
+      toggleBtn.classList.remove("open");
+    }
+  });
+  
+  window.addEventListener("resize", function() {
+    if (!isMobile()) {
+      menu.style.display = "";
+      toggleBtn.classList.remove("open");
+    }
+  });
+}
+
+/* --------------------- Manejo de URLs con parámetros ----------------------------- */
+$(window).on("load", function() {
+  if (window.location.href.split("?")[1]) {
+    $('a[href*="http://sistemas"]').each(function() {
+      const con = $(this).prop("href").split("?").length == 1 ? "?" : "&";
+      $(this).prop("href", $(this).prop("href") + con + window.location.href.split("?")[1]);
+    });
+  }
+});
+</script>
+
+<!-- Cargar datos de promociones y tarjetas -->
+<script defer>
+  fetch('assets/datosCarreras.json')
+    .then((response) => response.json())
+    .then((json) => {
+      // Manejo de promociones
+      const promociones = json.promocion;
+      const elementoPromocion = document.getElementById('promo');
+      
+      if (promociones && elementoPromocion) {
+        let index = 0;
+        elementoPromocion.innerHTML = promociones[index];
+        
+        function cambiarTexto() {
+          index = (index + 1) % promociones.length;
+          elementoPromocion.innerHTML = promociones[index];
+        }
+        
+        setInterval(cambiarTexto, 3000);
+      }
+      
+      // Manejo de tarjetas
+      const datosTarjeta = json.tarjeta;
+      if (datosTarjeta) {
+        // Tarjeta Macro
+        const tarjetaMacro = document.getElementById('tarjetaMacro');
+        if (tarjetaMacro && datosTarjeta.macro) {
+          tarjetaMacro.innerHTML = `
+            <img class="w-1/2 bg-white rounded-2xl p-4" src="${datosTarjeta.macro.imagen}" alt="tarjeta macro">
+            <p class="text-md">${datosTarjeta.macro.descripcion}</p>
+          `;
+        }
+        
+        // Tarjeta Naranja
+        const tarjetaNaranja = document.getElementById('tarjetaNaranja');
+        if (tarjetaNaranja && datosTarjeta.naranja) {
+          tarjetaNaranja.innerHTML = `
+            <img class="w-1/2 bg-white rounded-2xl p-4" src="${datosTarjeta.naranja.imagen}" alt="tarjeta naranja">
+            <p class="text-md">${datosTarjeta.naranja.descripcion}</p>
+          `;
+        }
+        
+        // Tarjeta Banco
+        const tarjetaBanco = document.getElementById('tarjetaBanco');
+        if (tarjetaBanco && datosTarjeta.banco) {
+          tarjetaBanco.innerHTML = `
+            <img class="w-1/2 bg-white rounded-2xl p-4" src="${datosTarjeta.banco.imagen}" alt="tarjeta banco">
+            <p class="text-md">${datosTarjeta.banco.descripcion}</p>
+          `;
+        }
+      }
+      
+      // Manejo de banner
+      const banner = json.banner;
+      const bannerElement = document.getElementById('banner');
+      if (banner && bannerElement) {
+        bannerElement.innerHTML = `
+          <source src="${banner.video}" type="video/mp4">
+          <source src="${banner.videoOgg}" type="video/ogg">
+        `;
+      }
+    })
+    .catch(error => {
+      console.error('Error al cargar datos de promociones:', error);
+    });
+</script>
+
+<!-- Flowbite JS -->
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>

@@ -79,7 +79,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <script src="./assets/scripts.js" async defer></script>
+    <script src="./assets/scriptsDistancia.js" async defer></script>
     <link rel="stylesheet" href="./assets/styles.css">
     <!-- ..... -->
 
@@ -450,14 +450,15 @@
                         </svg>
                     </button>
                     <!-- Datos -->
-                    <div class="flex flex-row  items-center justify-center text-center text-[#002F6C] font-semibold max-[@[568px]]:gap-12 lg:gap-36 gap-3">
-                        <span class="md:col-start-1 text-lg leading-tight">+120<br><span
+                    <div
+                        class="grid grid-cols-4 xl:grid-cols-8 items-center justify-center text-center text-[#002F6C] font-semibold gap-5">
+                        <span class="xl:col-start-1 text-lg leading-tight">+120<br><span
                                 class="text-base ml-1">Sedes</span></span>
-                        <span class="md:col-start-3 text-lg leading-tight">+80<br><span
+                        <span class="xl:col-start-3 text-lg leading-tight">+80<br><span
                                 class="text-base">Carreras</span></span>
-                        <span class="md:col-start-5 text-lg leading-tight">+100.000<br><span
+                        <span class="xl:col-start-5 text-lg leading-tight">+100.000<br><span
                                 class="text-base">Estudiantes</span></span>
-                        <span class="md:col-start-7 text-lg leading-tight">+70.000<br><span
+                        <span class="xl:col-start-7 text-lg leading-tight">+70.000<br><span
                                 class="text-base">Graduados</span></span>
                     </div>
                 </div>
@@ -627,7 +628,8 @@
         </div>
     </div>
     <div class="relative w-full overflow-hidden snap-y snap-mandatory mt-6" id="formu">
-        <div class="absolute inset-0 md:bg-[url('./public/fondo_graduados.jpg')] bg-no-repeat bg-cover bg-center z-0"></div>
+        <div class="absolute inset-0 md:bg-[url('./public/fondo_graduados.jpg')] bg-no-repeat bg-cover bg-center z-0">
+        </div>
         <div class="absolute inset-0 hidden md:block bg-black/30 z-10"></div>
         <div class="relative z-20 flex flex-col md:flex-row w-full max-w-none py-2">
             <div class="flex-1 text-center w-full max-w-4xl px-6 pt-6 md:contenedor">
@@ -641,24 +643,29 @@
                 autocomplete="on"
                 class="max-md:border-gray-200 contenedor max-md:border-2 border-y-2 border-gray-100 max-md:shadow-lg p-5 min-md:w-[40%] min-md:flex-shrink-0 bg-white/95 z-30">
                 <!-- input defaul -->
-                <input type="hidden" value="4" name="id_origen" id="id_origen" />
-                <!-- <input type="hidden" value=" " name="apellido" id="apellido" /> -->
+                <input type="hidden" value="103" name="id_origen" id="id_origen" />
+                <input type="hidden" value="7" name="modo" />
                 <input type="hidden" value="postulantes" name="tabla" />
-                <input type="hidden" id="addr" name="addr" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>" />
-                <input type="hidden" id="agent" name="agent" value="<?php echo $_SERVER['HTTP_USER_AGENT']; ?>" />
-                <input type="hidden" name="utm_source" value="<?php echo $utm_source; ?>" />
-                <input type="hidden" name="utm_medium" value="<?php echo $utm_medium; ?>" />
-                <input type="hidden" name="utm_term" value="<?php echo $utm_term; ?>" />
-                <input type="hidden" name="utm_content" value="<?php echo $utm_content; ?>" />
-                <input type="hidden" name="utm_campaign" value="<?php echo $utm_campaign; ?>" />
-                <input type="hidden" name="idconversion" value="<?php echo $idconversion; ?>" />
-                <input type="hidden" name="campaignid" value="<?php echo $campaignid; ?>" />
-                <input type="hidden" name="referer" value="<?php echo $referer; ?>" />
+                <input name="addr" type="hidden" value='<?php echo $_SERVER["REMOTE_ADDR"]; ?>' />
+                <input name="agent" type="hidden" value='<?php echo $_SERVER["HTTP_USER_AGENT"]; ?>' />
+                <input name="utm_source" type="hidden" value="<?php echo $utm_source; ?>" />
+                <input name="utm_medium" type="hidden" value="<?php echo $utm_medium; ?>" />
+                <input name="utm_term" type="hidden" value="<?php echo $utm_term; ?>" />
+                <input name="utm_content" type="hidden" value="<?php echo $utm_content; ?>" />
+                <input name="utm_campaign" type="hidden" value="<?php echo $utm_campaign; ?>" />
+                <input name="idconversion" type="hidden" value="<?php echo $idconversion; ?>" />
+                <input name="campaignid" type="hidden" value="<?php echo $campaignid; ?>" />
+                <input name="referer" type="hidden" value="<?php echo $referer; ?>" />
                 <input name="gclid" type="hidden" value="<?php echo $gclid; ?>" />
                 <input type="hidden" name="tkp" value="/landing/enviado-distancia-2021.php">
                 <input type="hidden" name="fkp" value="/landing/enviado-distancia-2021.php?id=404">
 
-                <!-- Nombre y Apellido -->
+                <div class="flex justify-center">
+                    <p class="text-gray-600 text-lg font-medium my-2 text-gray-900">
+                        Quiero recibir información:
+                    </p>
+                </div>
+
                 <div class="grid md:grid-cols-3 md:gap-6">
                     <div class="relative z-0 w-full mb-4 group">
                         <input type="text" name="nombre" id="nombre" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+"
@@ -679,65 +686,30 @@
                             placeholder="Email" required tabindex="2" />
                     </div>
                 </div>
+                <div class="relative z-0 w-full mb-4 group grid grid-cols-2 md:grid-cols-3 gap-4">
 
-                <!-- DNI -->
-                <!-- <div class="relative z-0 w-full mb-4 group">
-        <input type="text" name="dni" id="dni" pattern="[0-9]{7,8}" maxlength="8" inputmode="numeric"
-          class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-gray-900 border rounded-[8px]  border-gray-300 appearance-none bg-white/80 focus:outline-none focus:ring-0 focus:border-blue-600"
-          placeholder="DNI para Promociones" tabindex="3"
-          onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" />
-      </div> -->
-
-                <!-- Carrera -->
-                <div class="relative z-0 w-full mb-4 group grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <select name="modo" id="modo"
-                        class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600"
-                        required onchange="cambiar_modo();" tabindex="5">
-                        <!-- Opciones del select -->
-                        <option value="" disabled selected>Modalidad</option>
-                        <option value="1">Presencial</option>
-                        <option value="7">Online</option>
-                    </select>
-
-                    <?php
-          if ($cbx_sede > 0) {
-            echo '
-        <input name="cbx_provincia" id="cbx_provincia1" type="hidden" value="' . $cbx_provincia . '">
-        <input name="cbx_sede" id="cbx_sede1" type="hidden" value="' . $cbx_sede . '">
-        ';
-          } else {
-            echo '
-          <!-- Provincia -->
-          <div class="relative z-0 w-full group">
-            <div class="select-wrapper" data-tooltip="Seleccioná una modalidad primero">
-              <select name="cbx_provincia" id="cbx_provincia" disabled
-                class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form"
-                required onchange="cargar_sedes();" tabindex="5">
-                <option value="" disabled selected>Provincia</option>
-              </select>
-            </div>
-          </div>
-          
-          <!-- Sede -->
-          <div class="relative z-0 w-full group">
-            <div class="select-wrapper" data-tooltip="Seleccioná una provincia primero">
-              <select name="cbx_sede" id="cbx_sede" onchange="cargar_carreras()" disabled
-                class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form"
-                required tabindex="6">
-                <option value="" disabled selected>Sede</option>
-              </select>
-            </div>
-          </div>
-        ';
-          }
-          ?>
-                    <div class="select-wrapper" data-tooltip="Seleccioná una sede primero">
                         <select name="cbx_carrera" id="cbx_carrera"
-                            class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form"
-                            required tabindex="4">
-                            <!-- Opciones del select -->
-                            <option value="" disabled selected>Seleccionar Carrera</option>
+                            class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600"
+                            required tabindex="4" onchange="cargar_provincias()">
+                            <option value="" selected>Carrera</option>
                         </select>
+                    <div class="relative z-0 w-full group">
+                        <div class="select-wrapper" data-tooltip="Selecciona una Carrera primero">
+                            <select name="cbx_provincia" id="cbx_provincia"
+                                class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form"
+                                required onchange="cargar_sedes();" tabindex="5">
+                                <option value="" disabled selected>Provincia</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="relative z-0 w-full group">
+                        <div class="select-wrapper" data-tooltip="Selecciona una Provincia primero">
+                            <select name="cbx_sede" id="cbx_sede"
+                                class="block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form"
+                                required tabindex="6">
+                                <option value="" disabled selected>Sede</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <!-- Teléfono -->
@@ -805,6 +777,7 @@
                     </div>
                 </div>
             </form>
+
         </div>
     </div>
     <div class="md:pb-12">
