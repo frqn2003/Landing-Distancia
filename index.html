@@ -610,7 +610,8 @@
         </div>
     </div>
     <!-- Carreras -->
-    <div class="contenedor relative bg-gradient-to-b from-gray-100 via-white to-gray-100 py-2 rounded-xl shadow-inner">
+    <div
+        class="contenedor relative bg-gradient-to-b from-gray-100 via-white to-gray-100 py-2 rounded-xl shadow-inner desvanecer">
         <!-- Main grid container -->
         <div class="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 md:gap-8 overflow-y-scroll h-[800px] scrollbar-thin px-2 relative"
             id="listaCarreras">
@@ -780,28 +781,73 @@
 
         </div>
     </div>
-    <div class="md:pb-12">
-        <div class="contenedor my-8" id="beneficios">
-            <div class="mb-5 font-extrabold text-center hidden md:block">
-                <h2>¡Viví tu experiencia universitaria!</h2>
-            </div>
-            <div class="mb-5 font-extrabold text-center md:hidden block">
-                <h2>¡Viví tu experiencia!</h2>
+    <div class="md:pb-12 desvanecer contenedor space-y-6">
+        <div class="my-8" id="beneficios">
+            <div class="mb-5 font-extrabold text-center">
+                <h2>¡Viví tu universidad, estés donde estés!</h2>
             </div>
         </div>
-        <div class="flex xl:flex-row flex-col contenedor gap-2 xl:gap-8 xl:px-12">
-            <!-- Imagenes -->
-            <div class="relative group flex flex-1 justify-center items-center mx-auto">
-                <div class="relative bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-2xl">
-                    <div class="aspect-square md:w-96 w-64">
-                        <img src="./public/kao.webp" alt="Placeholder Image"
-                            class="w-full h-full object-cover object-center rounded-2xl shadow-lg transition-all ease-in-out duration-700" />
-                    </div>
-                </div>
+        <div class="grid grid-cols-5 gap-4">
+            <div
+                class="grid grid-rows-3 bg-white/70 rounded p-4 shadow-2xl items-center-safe text-center justify-center-safe border-[#D6001C] border-t">
+                <img src="https://www.ucasal.edu.ar/landing/img/img-test/icons/experiencia-flexible.svg"
+                    alt="Placeholder image" class="w-14 h-14 object-cover object-center shadow-lg mx-auto" />
+                <h3 class="text-center font-bold text-lg">Experiencia Flexible</h3>
+                <p class="text-center">Sin limitaciones de edad, espacios físicos y tiempo.</p>
             </div>
-            <!-- Items -->
-            <div class="grid grid-cols-2 gap-4 xl:ml-12 flex-auto" id="potencia">
-                <!-- dinamico -->
+            <div
+                class="grid grid-rows-3 bg-white/70 rounded p-4 shadow-2xl items-center-safe text-center justify-center-safe border-[#002F6C] border-t">
+                <img src="https://www.ucasal.edu.ar/landing/img/img-test/icons/experiencia-flexible.svg"
+                    alt="Placeholder image" class="w-14 h-14 object-cover object-center shadow-lg mx-auto" />
+                <h3 class="text-center font-bold text-lg">Experiencia Flexible</h3>
+                <p class="text-center">Sin limitaciones de edad, espacios físicos y tiempo.</p>
+            </div>
+            <div
+                class="grid grid-rows-3 bg-white/70 rounded p-4 shadow-2xl items-center-safe text-center justify-center-safe border-[#D6001C] border-t">
+                <img src="https://www.ucasal.edu.ar/landing/img/img-test/icons/experiencia-flexible.svg"
+                    alt="Placeholder image" class="w-14 h-14 object-cover object-center shadow-lg mx-auto" />
+                <h3 class="text-center font-bold text-lg">Experiencia Flexible</h3>
+                <p class="text-center">Sin limitaciones de edad, espacios físicos y tiempo.</p>
+            </div>
+            <div
+                class="grid grid-rows-3 bg-white/70 rounded p-4 shadow-2xl items-center-safe text-center justify-center-safe border-[#002F6C] border-t">
+                <img src="https://www.ucasal.edu.ar/landing/img/img-test/icons/experiencia-flexible.svg"
+                    alt="Placeholder image" class="w-14 h-14 object-cover object-center shadow-lg mx-auto" />
+                <h3 class="text-center font-bold text-lg">Experiencia Flexible</h3>
+                <p class="text-center">Sin limitaciones de edad, espacios físicos y tiempo.</p>
+            </div>
+            <div
+                class="grid grid-rows-3 bg-white/70 rounded p-4 shadow-2xl items-center-safe text-center justify-center-safe border-[#D6001C] border-t">
+                <img src="https://www.ucasal.edu.ar/landing/img/img-test/icons/experiencia-flexible.svg"
+                    alt="Placeholder image" class="w-14 h-14 object-cover object-center shadow-lg mx-auto" />
+                <h3 class="text-center font-bold text-lg">Experiencia Flexible</h3>
+                <p class="text-center">Sin limitaciones de edad, espacios físicos y tiempo.</p>
+            </div>
+        </div>
+        <div class="grid grid-cols-4 gap-4">
+            <div class="grid grid-rows-3 bg-white/70 rounded p-4 shadow-2xl items-center-safe text-center justify-center-safe border-[#002F6C] border-t">
+                <img src="https://www.ucasal.edu.ar/landing/img/img-test/icons/experiencia-flexible.svg"
+                    alt="Placeholder image" class="w-14 h-14 object-cover object-center shadow-lg mx-auto" />
+                <h3 class="text-center font-bold text-lg">Experiencia Flexible</h3>
+                <p class="text-center">Sin limitaciones de edad, espacios físicos y tiempo.</p>
+            </div>
+            <div class="grid grid-rows-3 bg-white/70 rounded p-4 shadow-2xl items-center-safe text-center justify-center-safe border-[#D6001C] border-t">
+                <img src="https://www.ucasal.edu.ar/landing/img/img-test/icons/experiencia-flexible.svg"
+                    alt="Placeholder image" class="w-14 h-14 object-cover object-center shadow-lg mx-auto" />
+                <h3 class="text-center font-bold text-lg">Experiencia Flexible</h3>
+                <p class="text-center">Sin limitaciones de edad, espacios físicos y tiempo.</p>
+            </div>
+            <div class="grid grid-rows-3 bg-white/70 rounded p-4 shadow-2xl items-center-safe text-center justify-center-safe border-[#002F6C] border-t">
+                <img src="https://www.ucasal.edu.ar/landing/img/img-test/icons/experiencia-flexible.svg"
+                    alt="Placeholder image" class="w-14 h-14 object-cover object-center shadow-lg mx-auto" />
+                <h3 class="text-center font-bold text-lg">Experiencia Flexible</h3>
+                <p class="text-center">Sin limitaciones de edad, espacios físicos y tiempo.</p>
+            </div>
+            <div class="grid grid-rows-3 bg-white/70 rounded p-4 shadow-2xl items-center-safe text-center justify-center-safe border-[#D6001C] border-t">
+                <img src="https://www.ucasal.edu.ar/landing/img/img-test/icons/experiencia-flexible.svg"
+                    alt="Placeholder image" class="w-14 h-14 object-cover object-center shadow-lg mx-auto" />
+                <h3 class="text-center font-bold text-lg">Experiencia Flexible</h3>
+                <p class="text-center">Sin limitaciones de edad, espacios físicos y tiempo.</p>
             </div>
         </div>
     </div>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencia Educativa UCASAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ucasal-blue': '#003366',
+                        'ucasal-gold': '#B8860B',
+                        'ucasal-light-blue': '#E6F3FF',
+                        'ucasal-gray': '#F8F9FA'
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'float-gentle': 'floatGentle 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        floatGentle: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-5px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white">
+    
+    <!-- Sección Principal -->
+    <section class="relative py-16 bg-gradient-to-br from-ucasal-gray to-white">
+        <!-- Elementos decorativos sutiles -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 right-10 w-40 h-40 border border-ucasal-blue rounded-full"></div>
+            <div class="absolute bottom-10 left-10 w-32 h-32 bg-ucasal-gold rounded-full blur-3xl opacity-20"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4">
+            <!-- Header Institucional -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center mb-6">
+                    <div class="w-16 h-1 bg-ucasal-gold mr-4"></div>
+                    <div class="w-4 h-4 bg-ucasal-blue transform rotate-45"></div>
+                    <div class="w-16 h-1 bg-ucasal-gold ml-4"></div>
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-ucasal-blue mb-6">
+                    Nuestra Propuesta Educativa
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+                    Descubrí las características distintivas que hacen de UCASAL una experiencia 
+                    universitaria única, comprometida con la excelencia académica y la formación integral.
+                </p>
+            </div>
+
+            <!-- Grid Principal - Desktop -->
+            <div class="hidden lg:block">
+                <!-- Primera fila - 3 columnas -->
+                <div class="grid grid-cols-3 gap-8 mb-12">
+                    <!-- Excelencia Académica -->
+                    <div class="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border-t-4 border-ucasal-blue">
+                        <div class="p-8">
+                            <div class="flex items-center justify-center w-16 h-16 bg-ucasal-blue rounded-full mb-6 mx-auto group-hover:animate-float-gentle">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-ucasal-blue mb-4 text-center">Excelencia Académica</h3>
+                            <p class="text-gray-600 text-center leading-relaxed">
+                                Programas académicos de alta calidad respaldados por más de 50 años de trayectoria 
+                                en educación superior y compromiso con la excelencia.
+                            </p>
+                        </div>
+                        <div class="h-1 bg-gradient-to-r from-ucasal-gold to-ucasal-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </div>
+
+                    <!-- Formación Integral -->
+                    <div class="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border-t-4 border-ucasal-gold">
+                        <div class="p-8">
+                            <div class="flex items-center justify-center w-16 h-16 bg-ucasal-gold rounded-full mb-6 mx-auto group-hover:animate-float-gentle">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-ucasal-blue mb-4 text-center">Formación Integral</h3>
+                            <p class="text-gray-600 text-center leading-relaxed">
+                                Desarrollo completo del estudiante en aspectos académicos, profesionales, 
+                                éticos y humanos, basado en valores cristianos.
+                            </p>
+                        </div>
+                        <div class="h-1 bg-gradient-to-r from-ucasal-blue to-ucasal-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </div>
+
+                    <!-- Tecnología Educativa -->
+                    <div class="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border-t-4 border-ucasal-blue">
+                        <div class="p-8">
+                            <div class="flex items-center justify-center w-16 h-16 bg-ucasal-blue rounded-full mb-6 mx-auto group-hover:animate-float-gentle">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-ucasal-blue mb-4 text-center">Tecnología Educativa</h3>
+                            <p class="text-gray-600 text-center leading-relaxed">
+                                Plataformas virtuales de última generación y herramientas digitales 
+                                que potencian el proceso de enseñanza-aprendizaje.
+                            </p>
+                        </div>
+                        <div class="h-1 bg-gradient-to-r from-ucasal-gold to-ucasal-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Segunda fila - 2 columnas centradas -->
+                <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+                    <!-- Vinculación Profesional -->
+                    <div class="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border-t-4 border-ucasal-gold">
+                        <div class="p-8">
+                            <div class="flex items-center justify-center w-16 h-16 bg-ucasal-gold rounded-full mb-6 mx-auto group-hover:animate-float-gentle">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V9a2 2 0 11-4 0V6m0 0V4.5a2 2 0 10-4 0V6m4 0H8m5 5v.01M8 19l4-7 4 7H8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-ucasal-blue mb-4 text-center">Vinculación con el Mundo Profesional</h3>
+                            <p class="text-gray-600 text-center leading-relaxed">
+                                Convenios estratégicos con empresas e instituciones que facilitan 
+                                prácticas profesionales y oportunidades laborales para nuestros egresados.
+                            </p>
+                        </div>
+                        <div class="h-1 bg-gradient-to-r from-ucasal-blue to-ucasal-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </div>
+
+                    <!-- Acompañamiento Personalizado -->
+                    <div class="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border-t-4 border-ucasal-blue">
+                        <div class="p-8">
+                            <div class="flex items-center justify-center w-16 h-16 bg-ucasal-blue rounded-full mb-6 mx-auto group-hover:animate-float-gentle">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-ucasal-blue mb-4 text-center">Acompañamiento Personalizado</h3>
+                            <p class="text-gray-600 text-center leading-relaxed">
+                                Tutorías individualizadas y seguimiento continuo del progreso académico 
+                                para garantizar el éxito de cada estudiante.
+                            </p>
+                        </div>
+                        <div class="h-1 bg-gradient-to-r from-ucasal-gold to-ucasal-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Tercera fila - 1 columna central destacada -->
+                <div class="max-w-2xl mx-auto">
+                    <div class="group bg-gradient-to-br from-ucasal-blue to-blue-800 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden text-white">
+                        <div class="p-10 text-center">
+                            <div class="flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6 mx-auto group-hover:animate-float-gentle">
+                                <svg class="w-10 h-10 text-ucasal-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Acreditación y Reconocimiento</h3>
+                            <p class="text-lg leading-relaxed opacity-90">
+                                Títulos oficiales reconocidos por CONEAU y el Ministerio de Educación, 
+                                con validez nacional e internacional. Más de 25.000 graduados avalan 
+                                nuestra trayectoria y prestigio académico.
+                            </p>
+                        </div>
+                        <div class="h-2 bg-gradient-to-r from-ucasal-gold via-yellow-400 to-ucasal-gold"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Versión móvil - Stack vertical -->
+            <div class="lg:hidden space-y-6">
+                <!-- Card móvil 1 -->
+                <div class="bg-white rounded-lg shadow-lg border-l-4 border-ucasal-blue p-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex items-center justify-center w-12 h-12 bg-ucasal-blue rounded-full flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-ucasal-blue mb-2">Excelencia Académica</h3>
+                            <p class="text-gray-600 text-sm">Programas de alta calidad con más de 50 años de trayectoria educativa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card móvil 2 -->
+                <div class="bg-white rounded-lg shadow-lg border-l-4 border-ucasal-gold p-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex items-center justify-center w-12 h-12 bg-ucasal-gold rounded-full flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-ucasal-blue mb-2">Formación Integral</h3>
+                            <p class="text-gray-600 text-sm">Desarrollo completo basado en valores cristianos y excelencia profesional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card móvil 3 -->
+                <div class="bg-white rounded-lg shadow-lg border-l-4 border-ucasal-blue p-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex items-center justify-center w-12 h-12 bg-ucasal-blue rounded-full flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-ucasal-blue mb-2">Tecnología Educativa</h3>
+                            <p class="text-gray-600 text-sm">Plataformas virtuales y herramientas digitales de última generación.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card móvil destacada -->
+                <div class="bg-gradient-to-br from-ucasal-blue to-blue-800 rounded-lg shadow-xl p-6 text-white text-center">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4 mx-auto">
+                        <svg class="w-8 h-8 text-ucasal-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Reconocimiento Oficial</h3>
+                    <p class="text-sm opacity-90">Títulos reconocidos por CONEAU con validez nacional e internacional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-ucasal-blue py-16">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h3 class="text-3xl font-bold text-white mb-6">¿Listo para ser parte de la familia UCASAL?</h3>
+            <p class="text-xl text-blue-100 mb-8">Comenzá tu futuro profesional con nosotros</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-ucasal-gold hover:bg-yellow-600 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300">
+                    Solicitar Información
+                </button>
+                <button class="border-2 border-white text-white hover:bg-white hover:text-ucasal-blue font-bold py-4 px-8 rounded-lg transition-all duration-300">
+                    Ver Carreras
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animaciones al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-up');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.group, .bg-white');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    observer.observe(card);
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
