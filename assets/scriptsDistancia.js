@@ -345,7 +345,7 @@ function initCarrerasData() {
                 case 'popular':
                   return career.popular === true;
                 case 'destacada':
-                  return career.destacada === true; 
+                  return career.destacada === true;
                 case 'modalidad':
                   return career.modalidad.includes(filtro.value);
                 /* case 'duracion':
@@ -1002,60 +1002,94 @@ function initPotencia() {
 }
 /* --------------------- Formulario ----------------------------- */
 function initFormulario() {
-  // Script para el formulario
+  // Función asincrónica autoejecutable
   (async () => {
-    try {
-      const resp = await fetch(
-        `../../landing/consultas/getCarrerasJson.php?tipcar=Grado,Pregrado,Intermedio`
-      );
-      const data = await resp.json();
 
-      let codigosExcluidos = ["191", "46"];
-      let dataFiltrado = data.filter((carrera) => !codigosExcluidos.includes(carrera.codcar));
+    async function cargarCarreras() {
+      try {
+        const response = await fetch(
+          '../../landing/consultas/getCarrerasJson.php?modo=7', {
+          cache: "no-store"
+        }
+        );
 
-      window.localStorage.setItem("CarrerasModGeneral", JSON.stringify(dataFiltrado));
-
-      $("#cbx_carrera").empty().append('<option value="" disabled selected>Carrera</option>');
-      $("#cbx_provincia").empty().append('<option value="" disabled selected>Provincia</option>');
-      $("#cbx_sede").empty().append('<option value="" disabled selected>Sede</option>');
-
-      setTimeout(() => {
-        const provinciaElement = document.getElementById('cbx_provincia');
-        const sedeElement = document.getElementById('cbx_sede');
-        const carreraElement = document.getElementById('cbx_carrera');
-
-        if (provinciaElement) {
-          provinciaElement.setAttribute("disabled", "disabled");
-          provinciaElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
+        if (!response.ok) {
+          throw new Error(`Error de red: ${response.status}`);
         }
 
-        if (sedeElement) {
-          sedeElement.setAttribute("disabled", "disabled");
-          sedeElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
+        const carreras = await response.json();
+
+        if (!Array.isArray(carreras)) {
+          throw new Error("La respuesta no es un array válido de carreras");
         }
 
-        if (carreraElement) {
-          carreraElement.setAttribute("disabled", "disabled");
-          carreraElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
+        // 🎯 Filtro por cohortes específicas de Agosto
+        const carrerasDistancia = [16, 244, 14, 360, 355, 11, 138, 96, 336, 10, 15, 161, 363, 378, 196, 214, 133, 9, 250, 383, 58, 175];
+        console.log(carrerasDistancia)
+        const dataDistancia = carreras.filter(carrera =>
+          carrerasDistancia.includes(carrera.codcar)
+        );
+
+        console.log("📊 Carreras Distancia:", dataDistancia);
+
+        // Guardar listado en localStorage
+        localStorage.setItem(
+          "CarrerasDistancia",
+          JSON.stringify(dataDistancia)
+        );
+
+
+        $("#cbx_carrera").empty().append('<option value="" disabled selected>Carrera</option>');
+        $("#cbx_provincia").empty().append('<option value="" disabled selected>Provincia</option>');
+        $("#cbx_sede").empty().append('<option value="" disabled selected>Sede</option>');
+
+        setTimeout(() => {
+          const provinciaElement = document.getElementById('cbx_provincia');
+          const sedeElement = document.getElementById('cbx_sede');
+
+          if (provinciaElement) {
+            provinciaElement.setAttribute("disabled", "disabled");
+            provinciaElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
+          }
+
+          if (sedeElement) {
+            sedeElement.setAttribute("disabled", "disabled");
+            sedeElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
+          }
+
+          const provinciaWrapper = provinciaElement?.closest('.select-wrapper');
+          const sedeWrapper = sedeElement?.closest('.select-wrapper');
+
+          if (provinciaWrapper) {
+            provinciaWrapper.classList.remove('enabled');
+            provinciaWrapper.setAttribute('data-tooltip', 'Seleccioná una carrera primero');
+          }
+          if (sedeWrapper) {
+            sedeWrapper.classList.remove('enabled');
+            sedeWrapper.setAttribute('data-tooltip', 'Seleccioná una carrera primero');
+          }
+        }, 100);
+        // Llenar selector de carreras
+        dataDistancia.forEach(carrera => {
+          $("#cbx_carrera").append(
+            `<option value="${carrera.codcar}">${carrera.nombre_carrera}</option>`
+          );
+        });
+
+        // Si hay solo una carrera, se selecciona automáticamente
+        if (dataDistancia.length === 1) {
+          $("#cbx_carrera").val($("#cbx_carrera option:eq(1)").val());
         }
 
-        const provinciaWrapper = provinciaElement?.closest('.select-wrapper');
-        const sedeWrapper = sedeElement?.closest('.select-wrapper');
-
-        if (provinciaWrapper) {
-          provinciaWrapper.classList.remove('enabled');
-          provinciaWrapper.setAttribute('data-tooltip', 'Seleccioná una modalidad primero');
-        }
-        if (sedeWrapper) {
-          sedeWrapper.classList.remove('enabled');
-          sedeWrapper.setAttribute('data-tooltip', 'Seleccioná una modalidad primero');
-        }
-      }, 100);
-
-    } catch (error) {
-      console.error("❌ Error al cargar carreras:", error);
-      mostrarErrorEnLaUI("No se pudieron cargar las carreras en este momento.");
+      } catch (error) {
+        console.error("❌ Error al cargar carreras:", error);
+        mostrarErrorEnLaUI("No se pudieron cargar las carreras en este momento.");
+      }
     }
+
+    // 🚀 Ejecutar carga
+    await cargarCarreras();
+
   })();
 
   // Inicialización del formulario
@@ -1122,226 +1156,173 @@ $(window).on("load", function () {
   }
 });
 
-function cambiar_modo() {
-  var modo = $("#modo").val();
+function cargar_provincias() {
+  const carrera = document.getElementById('cbx_carrera').value;
+  const provinciaSelect = document.getElementById('cbx_provincia');
+  const sedeSelect = document.getElementById('cbx_sede');
+  const provinciaWrapper = provinciaSelect.closest('.select-wrapper');
+  const sedeWrapper = sedeSelect.closest('.select-wrapper');
 
-  if (!modo) {
-    resetearFormulario();
+  // Limpiar selects
+  $("#cbx_provincia").empty().append('<option value="" selected>Provincia</option>').prop("disabled", true);
+  $("#cbx_sede").empty().append('<option value="" selected>Sede</option>').prop("disabled", true);
+
+  if (carrera) {
+    // Habilitar provincia
+    provinciaSelect.disabled = false;
+    provinciaSelect.classList.remove('boton-inactivo-form');
+    provinciaWrapper.classList.add('enabled');
+    provinciaWrapper.setAttribute('data-tooltip', ''); // Limpiar tooltip
+
+    // Deshabilitar sede hasta que se seleccione provincia
+    sedeSelect.disabled = true;
+    sedeSelect.classList.add('boton-inactivo-form');
+    sedeWrapper.classList.remove('enabled');
+    sedeWrapper.setAttribute('data-tooltip', 'Seleccioná una provincia primero');
+    sedeSelect.value = '';
+
+    let carrerasArray = JSON.parse(localStorage.getItem("CarrerasDistancia"));
+    const carrerasProv = carrerasArray.filter(carreras => carreras.codcar == carrera);
+
+    if (carrerasProv.length) {
+      let carrera = carrerasProv[0];
+      let provincias = carrera.provincias;
+      let list_prov_id = [];
+
+      provincias.sort((a, b) => a.nombre_provincia.localeCompare(b.nombre_provincia));
+
+      provincias.forEach((valorProvincia) => {
+        if (!list_prov_id.includes(valorProvincia.id_provincia)) {
+          list_prov_id.push(valorProvincia.id_provincia);
+          $("#cbx_provincia").append(`<option value="${valorProvincia.id_provincia}">${valorProvincia.nombre_provincia}</option>`);
+        }
+      });
+
+      if (provincias.length == 1) {
+        $("#cbx_provincia").val($("#cbx_provincia option:eq(1)").val());
+        cargar_sedes();
+      }
+    }
+  } else {
+    // Si no hay carrera seleccionada, deshabilitar ambos
+    provinciaSelect.disabled = true;
+    provinciaSelect.classList.add('boton-inactivo-form');
+    provinciaWrapper.classList.remove('enabled');
+    provinciaWrapper.setAttribute('data-tooltip', 'Seleccioná una carrera primero');
+
+    sedeSelect.disabled = true;
+    sedeSelect.classList.add('boton-inactivo-form');
+    sedeWrapper.classList.remove('enabled');
+    sedeWrapper.setAttribute('data-tooltip', 'Seleccioná una carrera primero');
+  }
+}
+function cargar_sedes() {
+  const carrera = document.getElementById('cbx_carrera').value;
+  const provincia = document.getElementById('cbx_provincia').value;
+  const sedeSelect = document.getElementById('cbx_sede');
+  const sedeWrapper = sedeSelect.closest('.select-wrapper');
+
+  // Limpiar sede
+  $("#cbx_sede").empty().append('<option value="" selected>Sede</option>').prop("disabled", true);
+
+  if (provincia) {
+    // Habilitar sede
+    sedeSelect.disabled = false;
+    sedeSelect.classList.remove('boton-inactivo-form');
+    sedeWrapper.classList.add('enabled');
+    sedeWrapper.setAttribute('data-tooltip', '');
+
+    let carrerasArray = JSON.parse(localStorage.getItem("CarrerasDistancia"));
+    const carrerasProv = carrerasArray.filter(carreras => carreras.codcar == carrera);
+
+    if (carrerasProv.length) {
+      let carrera = carrerasProv[0];
+      let provincias = carrera.provincias;
+
+      const sedesProv = provincias.filter(p => p.id_provincia == provincia);
+
+      if (sedesProv.length) {
+        sedesProv.forEach((valorSede) => {
+          $("#cbx_sede").append(`<option value="${valorSede.id_sede}">${valorSede.nombre_sede}</option>`);
+        });
+
+        if (sedesProv.length == 1) {
+          $("#cbx_sede").val($("#cbx_sede option:eq(1)").val());
+        }
+      }
+    }
+  } else {
+    // Si no hay provincia seleccionada
+    sedeSelect.disabled = true;
+    sedeSelect.classList.add('boton-inactivo-form');
+    sedeWrapper.classList.remove('enabled');
+    sedeWrapper.setAttribute('data-tooltip', 'Seleccioná una provincia primero');
+  }
+}
+document.addEventListener('DOMContentLoaded', function () {
+  const provinciaWrapper = document.querySelector('#cbx_provincia').closest('.select-wrapper');
+  const sedeWrapper = document.querySelector('#cbx_sede').closest('.select-wrapper');
+
+  // Establecer tooltips iniciales
+  if (provinciaWrapper) {
+    provinciaWrapper.setAttribute('data-tooltip', 'Seleccioná una carrera primero');
+  }
+  if (sedeWrapper) {
+    sedeWrapper.setAttribute('data-tooltip', 'Seleccioná una carrera primero');
+  }
+});
+
+function carreraForm(cod) {
+  const carrerasDropdown = $('#cbx_carrera').empty();
+  const provinceDropdown = $("#cbx_provincia").empty();
+  const siteDropdown = $("#cbx_sede").empty();
+
+  const carrerasString = window.localStorage.getItem("CarrerasDistancia");
+  if (!carrerasString) {
+    console.error("Failed to load career data from local storage.");
     return;
   }
 
-  $("#cbx_provincia").empty().append('<option value="" disabled selected>Provincia</option>');
-  $("#cbx_sede").empty().append('<option value="" disabled selected>Sede</option>');
-  $("#cbx_carrera").empty().append('<option value="" disabled selected>Carrera</option>');
-
-  let provinciaElement = document.getElementById('cbx_provincia');
-  if (provinciaElement) {
-    provinciaElement.removeAttribute("disabled");
-    provinciaElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600";
-
-    const provinciaWrapper = provinciaElement.closest('.select-wrapper');
-    if (provinciaWrapper) {
-      provinciaWrapper.classList.add('enabled');
-      provinciaWrapper.setAttribute('data-tooltip', '');
-    }
+  const carrerasArray = JSON.parse(carrerasString);
+  if (!carrerasArray || carrerasArray.length === 0) {
+    console.error("No careers found in local storage.");
+    return;
   }
 
-  let sedeElement = document.getElementById('cbx_sede');
-  if (sedeElement) {
-    sedeElement.setAttribute("disabled", "disabled");
-    sedeElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
+  // Cargar todas las carreras en el dropdown
+  carrerasDropdown.append('<option value="" selected>Carrera</option>');
+  carrerasArray.forEach(carrera => {
+    appendOption(carrerasDropdown, carrera.codcar, carrera.nombre_carrera);
+  });
 
-    const sedeWrapper = sedeElement.closest('.select-wrapper');
-    if (sedeWrapper) {
-      sedeWrapper.classList.remove('enabled');
-      sedeWrapper.setAttribute('data-tooltip', 'Seleccioná una provincia primero');
-    }
-  }
+  carrerasDropdown.val(cod);
 
-  let carreraElement = document.getElementById('cbx_carrera');
-  if (carreraElement) {
-    carreraElement.setAttribute("disabled", "disabled");
-    carreraElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
-  }
-
-  var carrerasArray = JSON.parse(window.localStorage.getItem("CarrerasModGeneral") || "[]");
-  const carrerasMod = carrerasArray.filter(carreras => carreras.modo == modo);
-
-  if (carrerasMod.length > 0) {
-    var listaProvincia = [];
-    var list_prov_id = [];
-
-    carrerasMod.forEach(function (valorCarrera) {
-      if (valorCarrera.provincias) {
-        valorCarrera.provincias.forEach(function (provincia) {
-          if (!list_prov_id.includes(provincia.id_provincia)) {
-            list_prov_id.push(provincia.id_provincia);
-            listaProvincia.push(provincia);
-          }
-        });
-      }
-    });
-
-    listaProvincia.sort((a, b) => a.nombre_provincia.localeCompare(b.nombre_provincia));
-
-    listaProvincia.forEach(function (provincia) {
-      $("#cbx_provincia").append(
-        `<option value="${provincia.id_provincia}">${provincia.nombre_provincia}</option>`
-      );
-    });
-
-    if (listaProvincia.length === 1) {
-      $("#cbx_provincia").val($("#cbx_provincia option:eq(1)").val());
+  cargar_provincias();
+  // Si hay una sola provincia se cargara automaticamente
+  setTimeout(() => {
+    if ($("#cbx_provincia option").length === 2) {
       cargar_sedes();
     }
-  }
+  }, 100);
+
+  scrollToForm();
 }
 
-function cargar_sedes() {
-  const modo = document.getElementById('modo').value;
-  const provincia = document.getElementById('cbx_provincia').value;
-  const sedeSelect = document.getElementById('cbx_sede');
-  const carreraSelect = document.getElementById('cbx_carrera');
-
-  if (!sedeSelect || !carreraSelect) return;
-
-  const sedeWrapper = sedeSelect.closest('.select-wrapper');
-
-  $("#cbx_sede").empty().append('<option value="" disabled selected>Sede</option>');
-  $("#cbx_carrera").empty().append('<option value="" disabled selected>Carrera</option>');
-
-  carreraSelect.setAttribute("disabled", "disabled");
-  carreraSelect.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
-
-  if (provincia && modo) {
-    sedeSelect.removeAttribute("disabled");
-    sedeSelect.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600";
-
-    if (sedeWrapper) {
-      sedeWrapper.classList.add('enabled');
-      sedeWrapper.setAttribute('data-tooltip', '');
-    }
-
-    let carrerasArray = JSON.parse(localStorage.getItem("CarrerasModGeneral") || "[]");
-    const carrerasMod = carrerasArray.filter(c => c.modo == modo);
-
-    var listaSedes = [];
-    var list_sede_id = [];
-
-    carrerasMod.forEach(function (carrera) {
-      if (carrera.provincias) {
-        carrera.provincias.forEach(function (prov) {
-          if (prov.id_provincia == provincia && !list_sede_id.includes(prov.id_sede)) {
-            list_sede_id.push(prov.id_sede);
-            listaSedes.push(prov);
-          }
-        });
-      }
-    });
-
-    listaSedes.sort((a, b) => a.nombre_sede.localeCompare(b.nombre_sede));
-
-    listaSedes.forEach(function (sede) {
-      $("#cbx_sede").append(
-        `<option value="${sede.id_sede}">${sede.nombre_sede}</option>`
-      );
-    });
-
-    if (listaSedes.length === 1) {
-      $("#cbx_sede").val($("#cbx_sede option:eq(1)").val());
-      cargar_carreras();
-    }
-  } else {
-    sedeSelect.setAttribute("disabled", "disabled");
-    sedeSelect.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
-
-    if (sedeWrapper) {
-      sedeWrapper.classList.remove('enabled');
-      sedeWrapper.setAttribute('data-tooltip', 'Seleccioná una provincia primero');
-    }
-  }
+function appendOption(dropdown, value, text, isSelected = false) {
+  const optionHTML = `<option value="${value}" ${isSelected ? 'selected' : ''}>${text}</option>`;
+  dropdown.append(optionHTML);
 }
 
-function cargar_carreras() {
-  const modo = document.getElementById('modo').value;
-  const provincia = document.getElementById('cbx_provincia').value;
-  const sede = document.getElementById('cbx_sede').value;
-  const carreraSelect = document.getElementById('cbx_carrera');
-
-  if (!carreraSelect) return;
-
-  $("#cbx_carrera").empty().append('<option value="" disabled selected>Carrera</option>');
-
-  if (sede && provincia && modo) {
-    carreraSelect.removeAttribute("disabled");
-    carreraSelect.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600";
-
-    let carrerasArray = JSON.parse(localStorage.getItem("CarrerasModGeneral") || "[]");
-
-    const carrerasFiltradas = carrerasArray.filter(carrera => {
-      if (carrera.modo != modo) return false;
-
-      if (carrera.provincias) {
-        return carrera.provincias.some(prov =>
-          prov.id_provincia == provincia && prov.id_sede == sede
-        );
-      }
-      return false;
-    });
-
-    carrerasFiltradas.sort((a, b) => a.nombre_carrera.localeCompare(b.nombre_carrera));
-
-    carrerasFiltradas.forEach(function (carrera) {
-      $("#cbx_carrera").append(
-        `<option value="${carrera.codcar}">${carrera.nombre_carrera}</option>`
-      );
-    });
-
-    if (carrerasFiltradas.length === 1) {
-      $("#cbx_carrera").val($("#cbx_carrera option:eq(1)").val());
-    }
-  } else {
-    carreraSelect.setAttribute("disabled", "disabled");
-    carreraSelect.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
-  }
+function getUniqueProvinces(provinces) {
+  const uniqueIds = new Set();
+  return provinces.filter(province => {
+    const isUnique = !uniqueIds.has(province.id_provincia);
+    uniqueIds.add(province.id_provincia);
+    return isUnique;
+  }).sort((a, b) => a.nombre_provincia.localeCompare(b.nombre_provincia));
 }
 
-function resetearFormulario() {
-  const provinciaElement = document.getElementById('cbx_provincia');
-  const sedeElement = document.getElementById('cbx_sede');
-  const carreraElement = document.getElementById('cbx_carrera');
 
-  const provinciaWrapper = provinciaElement?.closest('.select-wrapper');
-  const sedeWrapper = sedeElement?.closest('.select-wrapper');
-
-  $("#cbx_provincia").empty().append('<option value="" disabled selected>Provincia</option>');
-  $("#cbx_sede").empty().append('<option value="" disabled selected>Sede</option>');
-  $("#cbx_carrera").empty().append('<option value="" disabled selected>Carrera</option>');
-
-  if (provinciaElement) {
-    provinciaElement.setAttribute("disabled", "disabled");
-    provinciaElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
-  }
-
-  if (sedeElement) {
-    sedeElement.setAttribute("disabled", "disabled");
-    sedeElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
-  }
-
-  if (carreraElement) {
-    carreraElement.setAttribute("disabled", "disabled");
-    carreraElement.className = "block w-full px-0 pt-2 pb-1 pl-2 text-sm text-black border border-gray-300 shadow-sm bg-white/80 focus:ring-blue-600 focus:border-blue-600 boton-inactivo-form";
-  }
-
-  if (provinciaWrapper) {
-    provinciaWrapper.classList.remove('enabled');
-    provinciaWrapper.setAttribute('data-tooltip', 'Seleccioná una modalidad primero');
-  }
-  if (sedeWrapper) {
-    sedeWrapper.classList.remove('enabled');
-    sedeWrapper.setAttribute('data-tooltip', 'Seleccioná una modalidad primero');
-  }
-}
 
 function carreraForm(cod) {
   const carrerasString = window.localStorage.getItem("CarrerasModGeneral");
